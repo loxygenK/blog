@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/loxygenK/blog/tags.schema.json",
+  "title": "f4n.dev Blog Tags Specification",
+  "description": "The specification for tags used in f4n.dev blog, such as caveats, tech tags.",
+  "type": "object",
+  "required": ["$schema", "caveats", "techs"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "description": "The Path/URL for the scheme of 'f4n.dev Blog Tags Specification'.",
+      "type": "string"
+    },
+    "caveats": {
+      "description": "Caveats. Notifies the user that the article or the content in it might contain some information that requires extra caution when reading / understanding.",
+      "type": "object",
+      "additionalProperties": false,
+      "patternProperties": {
+        "^[a-z][0-9a-z]+$": {
+          "description": "Caveats information.",
+          "type": "object",
+          "required": ["emoji"],
+          "additionalProperties": false,
+          "properties": {
+            "emoji": {
+              "description": "The emoji that symbols the caveats.",
+              "type": "string",
+              "minLength": 1
+            },
+            "header": {
+              "description": "The captions and labels shown if it's used in the `caveats` front-matter.",
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["description", "label"],
+              "properties": {
+                "description": {
+                  "description": "The caption shown on the header of the articles when the caveat is used in the `caveat` front-matter",
+                  "minLength": 1
+                },
+                "label": {
+                  "description": "The label shown on the header of the articles when the caveat is used in the `caveat` front-matter. Should be English term.",
+                  "minLength": 1,
+                  "pattern": "^[a-zA-Z\\s]+$"
+                }
+              }
+            },
+            "inline": {
+              "description": "The captions and labels shown if it's used inside the content of the article.",
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["description", "background"],
+              "properties": {
+                "description": {
+                  "description": "The caption shown on the header of the articles when the caveat is used in the content of the article",
+                  "minLength": 1
+                },
+                "background": {
+                  "description": "Background text shown on the background of the section where the caveat is applied.",
+                  "minLength": 1,
+                  "pattern": "^[A-Z\\s]+$"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "techs": {
+      "description": "Technologies. Annotates the article what technology is related / used in the blog content.",
+      "type": "object",
+      "additionalProperties": false,
+      "patternProperties": {
+        "^[a-z][0-9a-z]+$": {
+          "required": ["name", "emoji"],
+          "description": "Technology Information.",
+          "additionalProperties": false,
+          "type": "object",
+          "properties": {
+            "name": {
+              "description": "The name of the technology. Primary language is English, but not limited to it.",
+              "type": "string",
+              "minLength": 1
+            },
+            "emoji": {
+              "description": "The emoji that symbols the technology.",
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      }
+    }
+  }
+}

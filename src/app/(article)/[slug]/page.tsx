@@ -1,4 +1,4 @@
-import { retrievePostData } from "~/blog/dataSource/articles";
+import { retrievePost } from "~/blog/usecase/articles";
 import { MDXContent } from "./mdx";
 
 type Props = {
@@ -8,7 +8,7 @@ type Props = {
 };
 
 export default async function Post({ params: { slug }}: Props) {
-  const blogContent = await retrievePostData(slug);
+  const blogContent = await retrievePost(slug);
 
   return (
     <main>

@@ -17,12 +17,14 @@ export async function parseMDX(content: string): Promise<Parsed> {
     {
       mdxOptions: {
         remarkPlugins: [remarkMath, remarkGfm, remarkGemoji],
-        // @ts-expect-error
+        // @ts-expect-error -- Version issue
         rehypePlugins: [rehypeKaTeX],
       },
       parseFrontmatter: true,
     },
   );
+
+  console.log(serialized)
 
   return {
     jsxSource: serialized.compiledSource,

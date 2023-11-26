@@ -2,14 +2,14 @@
 
 import { MDXRemote } from "next-mdx-remote";
 import { FC } from "react";
-import { PostData } from "~/blog/dataSource/articles";
+import { Post } from "~/blog/types";
 
 export type MDXContentProps = {
-  post: PostData;
-};export const MDXContent: FC<MDXContentProps> = ({ post }) => {
-
+  post: Post;
+};
+export const MDXContent: FC<MDXContentProps> = ({ post }) => {
   return (
-    <MDXRemote compiledSource={post.content} scope={{}} frontmatter={{}} />
+    <MDXRemote compiledSource={post.mdxContent} scope={{}} frontmatter={{}} />
   );
 };
 
