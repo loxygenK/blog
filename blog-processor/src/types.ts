@@ -11,16 +11,18 @@ export const frontMatter = z.object({
   shortDescription: z.string().min(1),
   caveats: z.array(caveat).default([]),
   techs: z.array(tech).default([]),
+  date: z.coerce.date(),
   published: z.union([
     z.literal("hidden"),
     z.literal("not-listed"),
-    z.literal("open:created-time"),
+    z.literal("true"),
     z.coerce.date(),
-  ]).default("open:created-time")
+  ]).default("true")
 })
 export type FrontMatter = z.infer<typeof frontMatter>;
 
 export type ProcessedBlog = {
+  slug: string;
   mdxContent: string;
   frontmatter: FrontMatter;
 }

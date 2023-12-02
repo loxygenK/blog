@@ -24,8 +24,6 @@ export async function parseMDX(content: string): Promise<Parsed> {
     },
   );
 
-  console.log(serialized)
-
   return {
     jsxSource: serialized.compiledSource,
     frontmatter: serialized.frontmatter,

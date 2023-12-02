@@ -5,19 +5,25 @@ import { walk } from "./fs";
 import { parseMDX } from "./markdown";
 import { FailureValidationResult, validateParsedMarkdown } from "./validator";
 
-export async function processBlogArticles(articlePath: string, defs: TagsDefinition): Promise<Record<string, ProcessedBlog>> {
+export type BlogArticleRegistry = {
+  articles: Record<string, ProcessedBlog>;
+  timestamps: Array<[time: number, slug: string]>;
+}
+
+export async function processBlogArticles(articlePath: string, defs: TagsDefinition): Promise<BlogArticleRegistry> {
   const dataPath = path.join(articlePath, "articles");
   if(!fs.existsSync(dataPath)) {
     throw new Error(`The path did not found: ${dataPath}}`);
   }
 
   let failed = false;
+  const timestamps: Array<[time: number, slug: string]> = [];
   const postDatabase: Record<string, ProcessedBlog> = {};
   for (const [path, slug] of walk(dataPath)) {
     const fileContent = fs.readFileSync(path).toString();
 
     const parsed = await parseMDX(fileContent);
-    const validated = validateParsedMarkdown(path, parsed, defs);
+    const validated = validateParsedMarkdown(path, slug, parsed, defs);
 
     if(!validated.ok) {
       console.error(`[!] Failed parse: ${path}\n---[start of '${slug}']`);
@@ -29,6 +35,7 @@ export async function processBlogArticles(articlePath: string, defs: TagsDefinit
 
     console.log(`  ✓ Parsed ${slug}: ${path}`);
     postDatabase[slug] = validated.blog;
+    timestamps.push([validated.blog.frontmatter.date.getTime(), slug]);
   }
 
   if(failed) {
@@ -36,5 +43,8 @@ export async function processBlogArticles(articlePath: string, defs: TagsDefinit
   }
 
   console.log(`✓ Parsed all ${Object.keys(postDatabase).length} content(s).`);
-  return postDatabase;
+  return {
+    articles: postDatabase,
+    timestamps,
+  };
 }
