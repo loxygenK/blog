@@ -6,12 +6,12 @@
   "packageManager": "pnpm@8.10.2",
   "scripts": {
     "dev": "next dev",
-    "lint": "run-s lint:*",
-    "lint:eslint": "eslint ./src/**.{js,ts,tsx} --max-warnings 0 --no-error-on-unmatched-pattern",
-    "lint:prettier": "prettier ./src/**.{js,ts,tsx} -c --no-error-on-unmatched-pattern",
+    "check": "run-s check:*",
+    "check:lint": "biome lint ./src",
+    "check:style": "biome format ./src --diagnostic-level=warn",
     "fix": "run-s fix:*",
-    "fix:eslint": "pnpm lint:eslint --fix",
-    "fix:prettier": "pnpm lint:prettier -w",
+    "fix:lint": "pnpm check:lint --apply",
+    "fix:style": "pnpm check:style --write",
     "sb": "storybook dev -p 6008",
     "build-storybook": "storybook build"
   },
@@ -33,6 +33,7 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
+    "@biomejs/biome": "^1.4.1",
     "@types/node": "^20.10.5",
     "@types/react": "^18.2.45",
     "@types/react-dom": "^18.2.18",
