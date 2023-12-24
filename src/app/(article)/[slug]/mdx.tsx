@@ -12,4 +12,3 @@ export const MDXContent: FC<MDXContentProps> = ({ post }) => {
     <MDXRemote compiledSource={post.mdxContent} scope={{}} frontmatter={{}} />
   );
 };
-

@@ -7,6 +7,12 @@
     "enabled": true,
     "rules": {
       "all": true,
+      "correctness": {
+        "noUndeclaredVariables": "error"
+      },
+      "nursery": {
+        "noDefaultExport": "off"
+      },
       "style": {
         "useNamingConvention": "off"
       }
