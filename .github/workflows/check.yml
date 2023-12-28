@@ -13,7 +13,7 @@ jobs:
 
       - name: Activate pnpm
         id: pnpm-config
-        run: corepack pnpm --version && echo "STORE_PATH=$(corepack pnpm)" >> $GITHUB_OUTPUT
+        run: corepack pnpm --version && echo "STORE_PATH=$(corepack pnpm store path)" >> $GITHUB_OUTPUT
 
       - uses: actions/cache@v3
         with:
