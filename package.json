@@ -6,8 +6,9 @@
   "packageManager": "pnpm@8.10.2",
   "scripts": {
     "dev": "next dev",
+    "ci": "biome ci ./src",
     "check": "run-s check:*",
-    "check:lint": "biome lint ./src",
+    "check:lint": "biome check ./src --formatter-enabled=false",
     "check:style": "biome format ./src --diagnostic-level=warn",
     "fix": "run-s fix:*",
     "fix:lint": "pnpm check:lint --apply",

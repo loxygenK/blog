@@ -1,7 +1,7 @@
-import { processBlogArticles } from "blog-processor";
-import { Post } from "../types";
 import fs from "fs";
 import path from "path";
+import { processBlogArticles } from "blog-processor";
+import { Post } from "../types";
 
 const BLOG_ARTICLE_PATH = path.join(
   process.cwd(),

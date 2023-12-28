@@ -1,6 +1,6 @@
+import Link from "next/link";
 import { getPosts } from "~/blog/usecase/articles";
 import styles from "./page.module.css";
-import Link from "next/link";
 
 export default async function Home() {
   const blogs = await getPosts(5);
