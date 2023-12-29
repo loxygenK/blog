@@ -65,24 +65,24 @@
         }
       }
     },
-    "techs": {
-      "description": "Technologies. Annotates the article what technology is related / used in the blog content.",
+    "tag": {
+      "description": "Tags, that represents what kind of the content is included in the article.",
       "type": "object",
       "additionalProperties": false,
       "patternProperties": {
-        "^[a-z][0-9a-z]+$": {
+        "^[a-z][0-9a-z-]+$": {
           "required": ["name", "emoji"],
-          "description": "Technology Information.",
+          "description": "Tag.",
           "additionalProperties": false,
           "type": "object",
           "properties": {
             "name": {
-              "description": "The name of the technology. Primary language is English, but not limited to it.",
+              "description": "The name of the tag. Primary language is English, but not limited to it.",
               "type": "string",
               "minLength": 1
             },
             "emoji": {
-              "description": "The emoji that symbols the technology.",
+              "description": "The emoji that symbols the tag.",
               "type": "string",
               "minLength": 1
             }

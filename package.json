@@ -22,6 +22,7 @@
     "@vanilla-extract/css": "^1.14.0",
     "@vanilla-extract/next-plugin": "^2.3.2",
     "blog-processor": "link:blog-processor",
+    "classnames": "^2.5.0",
     "next": "14.0.4",
     "next-mdx-remote": "^4.4.1",
     "react": "^18.2.0",
@@ -31,6 +32,9 @@
     "remark-gemoji": "^8.0.0",
     "remark-gfm": "3.0.1",
     "remark-math": "^6.0.0",
+    "sass": "^1.69.5",
+    "the-new-css-reset": "^1.11.2",
+    "twemoji": "^14.0.2",
     "zod": "^3.22.4"
   },
   "devDependencies": {

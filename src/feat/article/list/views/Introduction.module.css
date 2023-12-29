@@ -1,0 +1,35 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: var(--f4n-spacing-large);
+}
+
+.headingText {
+  visibility: hidden;
+}
+
+.description {
+  color: var(--f4n-text-primary);
+  letter-spacing: var(--f4n-char-spacing-packed);
+  font-weight: 500;
+  font-size: var(--f4n-font-size-dyn-large);
+}
+
+.pinnedPostSection {
+  position: relative;;
+  border: 2px solid var(--f4n-primary);
+  padding: var(--f4n-spacing-normal) var(--f4n-spacing-large);
+}
+
+.pinnedPostHeading {
+  position: absolute;
+  background-color: white;
+  line-height: var(--f4n-line-height-normal);
+
+  top: -0.5em;;
+  left: var(--f4n-spacing-small);
+  padding: 0 var(--f4n-spacing-small);
+
+  color: var(--f4n-primary);
+  font-weight: bold;
+}

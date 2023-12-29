@@ -1,0 +1,43 @@
+body, * {
+  --f4n-white: white;
+  --f4n-primary: #ED2A87;
+  --f4n-text-primary: #ca0b67;
+
+  --f4n-theme-green: #2AED8F;
+  --f4n-theme-sky: #2AA7ED;
+  --f4n-theme-blue: #2A60ED;
+  --f4n-theme-light-pink: #FF47B5;
+  --f4n-theme-purple: #9747FF;
+
+  --f4n-font-size-tiny: 14px;
+  --f4n-font-size-small: 16px;
+  --f4n-font-size-normal: 18px;
+  --f4n-font-size-huge: 36px;
+
+  --f4n-font-size-dyn-large: 1.25vw;
+
+  --f4n-spacing-tiny: 4px;
+  --f4n-spacing-small: 8px;
+  --f4n-spacing-normal: 12px;
+  --f4n-spacing-large: 20px;
+  --f4n-spacing-huge: 60px;
+  --f4n-spacing-very-huge: 80px;
+
+  --f4n-line-height-packed: 80%;
+  --f4n-line-height-normal: 100%;
+  --f4n-line-height-loose: 130%;
+
+  --f4n-char-spacing-packed: -0.075em;
+  --f4n-char-spacing-loose: 1.0px;
+
+  --f4n-font-family-mono: "JetBrains Mono", monospace;
+}
+
+body {
+  font-family: Inter, "Noto Sans JP", sans-serif;
+  font-feature-settings: 'liga' 1, 'calt' 1; /* fix for Chrome */
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  word-break: auto-phrase;
+}
