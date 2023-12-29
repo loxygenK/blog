@@ -33,3 +33,9 @@
   color: var(--f4n-primary);
   font-weight: bold;
 }
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 319 / 63;
+}

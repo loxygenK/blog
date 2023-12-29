@@ -1,13 +1,16 @@
 import { FC } from "react";
 
 import styles from "./Introduction.module.css";
+import Image from "next/image";
 
 export const Introduction: FC = () => {
   return (
     <section className={styles.root}>
       <hgroup>
         <h1 aria-label="Flisan's Blog">
-          <img src="/logo.svg" alt="Flisan's Blog" aria-hidden />
+          <figure className={styles.imageWrapper}>
+            <Image src="/logo.svg" alt="Flisan's Blog" aria-hidden fill />
+          </figure>
           <span className={styles.headingText}>Flisan's Blog</span>
         </h1>
         <p className={styles.description}>
