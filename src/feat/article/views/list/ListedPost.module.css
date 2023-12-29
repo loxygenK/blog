@@ -56,17 +56,6 @@
   font-weight: 500;
 }
 
-.footer {
-  padding-left: var(--f4n-spacing-large);
-  padding-right: var(--f4n-spacing-large);
-  border-top: 3px solid var(--type-color);
-}
-
-.tags {
-  display: flex;
-  gap: var(--f4n-spacing-normal);
-}
-
 .read {
   padding: var(--f4n-spacing-small) var(--f4n-spacing-normal);
   background-color: var(--type-color);
@@ -83,32 +72,4 @@
   transition: all 200ms;
   text-align: center;
   overflow: hidden;
-}
-
-.coding {
-  --type-color: var(--f4n-primary)
-}
-
-.programming {
-  --type-color: var(--f4n-theme-sky);
-}
-
-.til {
-  --type-color: var(--f4n-theme-blue);
-}
-
-.mylife {
-  --type-color: var(--f4n-theme-light-pink);
-}
-
-.mycareer {
-  --type-color: var(--f4n-theme-purple);
-}
-
-.release {
-  --type-color: var(--f4n-theme-dark-green);
-}
-
-.other {
-  --type-color: var(--f4n-theme-gray);
 }

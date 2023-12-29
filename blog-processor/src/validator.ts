@@ -29,7 +29,7 @@ export function validateParsedMarkdown(path: string, slug: string, markdown: Par
     path,
     blog: {
       slug,
-      mdxContent: markdown.jsxSource,
+      mdxContent: markdown.element,
       frontmatter: parsedFrontMatter.data,
     }
   }

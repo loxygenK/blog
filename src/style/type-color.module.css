@@ -1,0 +1,34 @@
+.coding {
+  --type-color: var(--f4n-primary);
+  --type-color-hue: 331;
+}
+
+.programming {
+  --type-color: var(--f4n-theme-sky);
+  --type-color-hue: 202;
+}
+
+.til {
+  --type-color: var(--f4n-theme-blue);
+  --type-color-hue: 223;
+}
+
+.mylife {
+  --type-color: var(--f4n-theme-light-pink);
+  --type-color-hue: 324;
+}
+
+.mycareer {
+  --type-color: var(--f4n-theme-purple);
+  --type-color-hue: 266;
+}
+
+.release {
+  --type-color: var(--f4n-theme-dark-green);
+  --type-color-hue: 151;
+}
+
+.other {
+  --type-color: var(--f4n-theme-gray);
+  --type-color-hue: 331;
+}

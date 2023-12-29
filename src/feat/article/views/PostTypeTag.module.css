@@ -4,6 +4,7 @@
   padding: var(--f4n-spacing-small) var(--f4n-spacing-normal);
   list-style: none;
   width: fit-content;
+  background: var(--type-color);
 }
 
 .caption {
@@ -12,32 +13,3 @@
   font-weight: 700;
   letter-spacing: 0;
 }
-
-.coding {
-  background-color: var(--f4n-primary)
-}
-
-.programming {
-  background-color: var(--f4n-theme-sky);
-}
-
-.til {
-  background-color: var(--f4n-theme-blue);
-}
-
-.mylife {
-  background-color: var(--f4n-theme-light-pink);
-}
-
-.mycareer {
-  background-color: var(--f4n-theme-purple);
-}
-
-.release {
-  background-color: var(--f4n-theme-dark-green);
-}
-
-.other {
-  background-color: var(--f4n-theme-gray);
-}
-

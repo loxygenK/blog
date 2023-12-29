@@ -2,19 +2,21 @@ import remarkGfm from "remark-gfm";
 import remarkGemoji from "remark-gemoji";
 import remarkMath from "remark-math";
 import rehypeKaTeX from "rehype-katex";
-import { serialize } from "next-mdx-remote/serialize";
+import { compileMDX } from "next-mdx-remote/rsc";
+import { FC, ReactNode } from "react";
 
 export type Parsed = {
-  jsxSource: string,
+  element: ReactNode,
   frontmatter: Record<string, unknown>,
 }
 
-export async function parseMDX(content: string): Promise<Parsed> {
+export async function parseMDX(content: string, components: Record<string, FC<any>>): Promise<Parsed> {
   // Must be executed in the server
 
-  const serialized = await serialize(
-    content,
-    {
+  const serialized = await compileMDX({
+    source: content,
+    components,
+    options: {
       mdxOptions: {
         remarkPlugins: [remarkMath, remarkGfm, remarkGemoji],
         // @ts-expect-error -- Version issue
@@ -22,10 +24,10 @@ export async function parseMDX(content: string): Promise<Parsed> {
       },
       parseFrontmatter: true,
     },
-  );
+  });
 
   return {
-    jsxSource: serialized.compiledSource,
+    element: serialized.content,
     frontmatter: serialized.frontmatter,
   }
 }

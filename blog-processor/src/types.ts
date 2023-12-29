@@ -1,3 +1,4 @@
+import { ReactNode } from "react";
 import { z } from "zod";
 
 export const caveat = z.string().min(1).brand("caveat");
@@ -32,7 +33,7 @@ export type FrontMatter = z.infer<typeof frontMatter>;
 
 export type ProcessedBlog = {
   slug: string;
-  mdxContent: string;
+  mdxContent: ReactNode;
   frontmatter: FrontMatter;
 }
 

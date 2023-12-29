@@ -1,5 +1,5 @@
 import { retrievePost } from "~/feat/article/usecase/articles";
-import { MDXContent } from "./mdx";
+import { PostDetailPage } from "~/feat/article/views/detail/page";
 
 type Props = {
   params: {
@@ -8,17 +8,7 @@ type Props = {
 };
 
 export default async function Post({ params: { slug } }: Props) {
-  const blogContent = await retrievePost(slug);
+  const post = await retrievePost(slug);
 
-  return (
-    <main>
-      <code>{slug}</code>
-      <hr />
-      {blogContent === undefined ? (
-        <span>No such post found!</span>
-      ) : (
-        <MDXContent post={blogContent} />
-      )}
-    </main>
-  );
+  return <PostDetailPage post={post} />;
 }

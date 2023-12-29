@@ -3,38 +3,37 @@ import { FC } from "react";
 import { postDetailPagePath } from "~/app/(article)/[slug]/path";
 
 import classNames from "classnames";
+import { typeColor } from "~/style/type-color";
+import { Post } from "../../type";
+import { PostTagRow } from "../PostTagRow";
 import { PostTypeTag } from "../PostTypeTag";
 import styles from "./ListedPost.module.css";
-import { Post } from "../../type";
 
 type Props = {
   post: Post;
 };
 
-export const ListedPost: FC<Props> = ({ post: { slug, frontmatter } }) => {
+export const ListedPost: FC<Props> = ({ post }) => {
   return (
     <Link
-      href={postDetailPagePath(slug)}
-      id={slug}
-      title={frontmatter.title}
-      aria-labelledby={`${slug}-title`}
-      aria-describedby={`${slug}-description`}
+      href={postDetailPagePath(post.slug)}
+      id={post.slug}
+      title={post.frontmatter.title}
+      aria-labelledby={`${post.slug}-title`}
+      aria-describedby={`${post.slug}-description`}
       className={styles.root}
     >
       <article className={styles.article}>
         <hgroup className={styles.title}>
-          <p className={styles.mainTitle} id={`${slug}-title`}>
-            {frontmatter.title}
+          <p className={styles.mainTitle} id={`${post.slug}-title`}>
+            {post.frontmatter.title}
           </p>
-          <aside className={styles.subTitle}>{frontmatter.subTitle}</aside>
+          <aside className={styles.subTitle}>{post.frontmatter.subTitle}</aside>
         </hgroup>
-        <footer className={classNames(styles.footer, styles[frontmatter.type])}>
-          <ul className={styles.tags}>
-            <li className={classNames(styles.read, styles[frontmatter.type])}>
-              ↗️ Read
-            </li>
-            <PostTypeTag type={frontmatter.type} />
-          </ul>
+        <footer>
+          <PostTagRow post={post}>
+            <li className={styles.read}>↗️ Read</li>
+          </PostTagRow>
         </footer>
       </article>
     </Link>

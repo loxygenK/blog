@@ -13,12 +13,7 @@ type Props = {
 
 export const ArticleListingPage: FC<Props> = ({ postMetadata }) => {
   return (
-    <BodyLayout
-      className={styles.root}
-      header={
-        <Header topics={[{ text: "Home", link: "/", emphasized: true }]} />
-      }
-    >
+    <BodyLayout className={styles.root} header={<Header topics={[]} />}>
       <Introduction />
       <nav className={styles.postList} aria-label="ブログ記事の一覧">
         {postMetadata.map((data) => (

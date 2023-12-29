@@ -1,7 +1,7 @@
 import { FC } from "react";
 
-import styles from "./Introduction.module.css";
 import Image from "next/image";
+import styles from "./Introduction.module.css";
 
 export const Introduction: FC = () => {
   return (

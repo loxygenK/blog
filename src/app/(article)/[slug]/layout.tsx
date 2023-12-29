@@ -19,20 +19,7 @@ export default function ArticleLayout({ children }: { children: ReactNode }) {
           crossOrigin="anonymous"
         />
       </head>
-      <BodyLayout
-        className=""
-        header={
-          <Header
-            topics={[
-              { text: "Home", link: "/", emphasized: false },
-              { text: "Article", link: "./", emphasized: true },
-            ]}
-          />
-        }
-      >
-        ** THIS IS ARTICLE ROUTING GROUP **
-        {children}
-      </BodyLayout>
+      {children}
     </>
   );
 }

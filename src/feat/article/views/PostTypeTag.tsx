@@ -2,8 +2,9 @@ import classNames from "classnames";
 import Image from "next/image";
 import { FC } from "react";
 import twemoji from "twemoji";
-import styles from "./PostTypeTag.module.css";
+import { typeColor } from "~/style/type-color";
 import { PostType } from "../type";
+import styles from "./PostTypeTag.module.css";
 
 type Props = {
   type: PostType;
@@ -21,7 +22,7 @@ const emoji: Record<PostType, { icon: string; caption: string }> = {
 
 export const PostTypeTag: FC<Props> = ({ type }) => {
   return (
-    <li className={classNames(styles.root, styles[type])}>
+    <li className={classNames(styles.root, typeColor(type))}>
       <Image
         alt={`${emoji[type].icon}- Icon for ${emoji[type].caption}`}
         src={emojiToTwemojiURL(type)}

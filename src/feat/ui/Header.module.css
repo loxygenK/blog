@@ -1,4 +1,6 @@
 .header {
+  position: sticky;
+
   display: flex;
 
   width: 100%;
