@@ -1,5 +1,5 @@
-import { getPosts } from "~/blog/usecase/articles";
-import { ArticleListingPage } from "~/feat/article/list/views/page";
+import { getPosts } from "~/feat/article/usecase/articles";
+import { ArticleListingPage } from "~/feat/article/views/list/page";
 
 export default async function Home() {
   const blogs = await getPosts(5);

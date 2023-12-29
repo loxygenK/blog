@@ -1,11 +1,11 @@
 import Link from "next/link";
 import { FC } from "react";
 import { postDetailPagePath } from "~/app/(article)/[slug]/path";
-import { Post } from "~/blog/types";
 
 import classNames from "classnames";
-import { PostTypeTag } from "../../PostTypeTag";
+import { PostTypeTag } from "../PostTypeTag";
 import styles from "./ListedPost.module.css";
+import { Post } from "../../type";
 
 type Props = {
   post: Post;

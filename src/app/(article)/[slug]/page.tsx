@@ -1,4 +1,4 @@
-import { retrievePost } from "~/blog/usecase/articles";
+import { retrievePost } from "~/feat/article/usecase/articles";
 import { MDXContent } from "./mdx";
 
 type Props = {

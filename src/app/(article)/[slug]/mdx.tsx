@@ -2,7 +2,7 @@
 
 import { MDXRemote } from "next-mdx-remote";
 import { FC } from "react";
-import { Post } from "~/blog/types";
+import { Post } from "~/feat/article/type";
 
 export type MDXContentProps = {
   post: Post;

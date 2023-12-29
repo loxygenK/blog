@@ -3,7 +3,7 @@ import Image from "next/image";
 import { FC } from "react";
 import twemoji from "twemoji";
 import styles from "./PostTypeTag.module.css";
-import { PostType } from "./type";
+import { PostType } from "../type";
 
 type Props = {
   type: PostType;
