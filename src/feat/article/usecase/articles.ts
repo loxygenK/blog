@@ -1,9 +1,9 @@
 import path from "path";
 import { processBlogArticles } from "blog-processor";
-import { Post } from "../type";
-import { blogComponentsFilled } from "../views/detail/blog-components";
 import { retrievePropertyDefinition } from "blog-processor";
 import { PropertiesDefinition } from "blog-processor/types";
+import { Post } from "../type";
+import { blogComponentsFilled } from "../views/detail/blog-components";
 
 const BLOG_ARTICLE_PATH = path.join(
   process.cwd(),
