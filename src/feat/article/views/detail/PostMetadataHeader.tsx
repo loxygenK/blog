@@ -5,7 +5,7 @@ import classNames from "classnames";
 import Image from "next/image";
 import { typeColor } from "~/style/type-color";
 import { PostTagRow } from "../PostTagRow";
-import styles from "./PostMetadata.module.css";
+import styles from "./PostMetadataHeader.module.css";
 
 type Props = {
   post: Post;

@@ -3,7 +3,7 @@ import { BodyLayout } from "~/feat/ui/BodyLayout";
 import { Header } from "~/feat/ui/Header";
 import { Post } from "../../type";
 import { MDXContent } from "./MDXContent";
-import { PostMetadata } from "./PostMetadata";
+import { PostMetadata } from "./PostMetadataHeader";
 
 import styles from "./page.module.css";
 
