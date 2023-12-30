@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: 33% 67%;
   width: 100%;
-  gap: var(--f4n-spacing-huge);
+  gap: var(--f4n-spacing-dyn-huge);
 
   padding-top: var(--f4n-spacing-very-huge);
 }
@@ -12,5 +12,5 @@
   flex-direction: column;
   gap: var(--f4n-spacing-huge);
 
-  width: calc(100% - var(--f4n-spacing-huge));
+  width: calc(100% - var(--f4n-spacing-dyn-huge));
 }

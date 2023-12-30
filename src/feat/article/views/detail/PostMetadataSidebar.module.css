@@ -1,0 +1,15 @@
+.root {
+  position: sticky;
+  top: var(--f4n-spacing-very-large);
+
+  border: 2px solid var(--type-color);
+  padding: var(--f4n-spacing-very-large);
+  height: fit-content;
+}
+
+.title {
+  color: var(--type-color);
+  font-size: var(--f4n-font-size-large);
+  line-height: var(--f4n-line-height-loose);
+  margin-bottom: var(--f4n-spacing-small);
+}

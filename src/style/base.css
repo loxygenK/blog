@@ -27,6 +27,9 @@ body, * {
   --f4n-spacing-huge: 60px;
   --f4n-spacing-very-huge: 80px;
 
+  --f4n-spacing-dyn-huge: 5vw;
+  --f4n-spacing-dyn-bloody-huge: 10vw;
+
   --f4n-line-height-packed: 80%;
   --f4n-line-height-normal: 100%;
   --f4n-line-height-bit-loose: 110%;

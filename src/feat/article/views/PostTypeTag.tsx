@@ -8,6 +8,7 @@ import styles from "./PostTypeTag.module.css";
 
 type Props = {
   type: PostType;
+  outlined?: boolean;
 };
 
 const emoji: Record<PostType, { icon: string; caption: string }> = {
@@ -20,9 +21,15 @@ const emoji: Record<PostType, { icon: string; caption: string }> = {
   other: { icon: "🗃️", caption: "Other" },
 };
 
-export const PostTypeTag: FC<Props> = ({ type }) => {
+export const PostTypeTag: FC<Props> = ({ outlined = false, type }) => {
   return (
-    <li className={classNames(styles.root, typeColor(type))}>
+    <li
+      className={classNames(
+        styles.root,
+        outlined && styles.outlined,
+        typeColor(type),
+      )}
+    >
       <Image
         alt={`${emoji[type].icon}- Icon for ${emoji[type].caption}`}
         src={emojiToTwemojiURL(type)}
@@ -30,7 +37,9 @@ export const PostTypeTag: FC<Props> = ({ type }) => {
         width={16}
         height={16}
       />
-      <span className={styles.caption}>{emoji[type].caption}</span>
+      <span className={classNames(styles.caption, outlined && styles.outlined)}>
+        {emoji[type].caption}
+      </span>
     </li>
   );
 };

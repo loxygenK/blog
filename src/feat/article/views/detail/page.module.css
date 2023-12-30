@@ -1,5 +1,32 @@
+.root {
+  padding: var(--f4n-spacing-very-huge) var(--f4n-spacing-dyn-bloody-huge);
+}
+
 .article {
-  display: flex;
-  flex-direction: column;
-  gap: var(--f4n-spacing-very-huge);
+  display: grid;
+  grid-template-columns: 67% 33%;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "header header"
+    "content sidebar"
+    "footer footer";
+
+  width: calc(100% -  var(--f4n-spacing-dyn-huge));
+  gap: var(--f4n-spacing-huge) var(--f4n-spacing-dyn-huge);
+}
+
+.header {
+  grid-area: header;
+}
+
+.content {
+  grid-area: content;
+}
+
+.sidebar {
+  grid-area: sidebar;
+}
+
+.footer {
+  grid-area: footer;
 }

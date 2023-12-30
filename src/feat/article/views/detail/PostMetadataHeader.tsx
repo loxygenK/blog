@@ -8,13 +8,18 @@ import { PostTagRow } from "../PostTagRow";
 import styles from "./PostMetadataHeader.module.css";
 
 type Props = {
+  className: string;
   post: Post;
 };
 
-export const PostMetadata: FC<Props> = ({ post }) => {
+export const PostMetadataHeader: FC<Props> = ({ className, post }) => {
   return (
     <header
-      className={classNames(styles.root, typeColor(post.frontmatter.type))}
+      className={classNames(
+        styles.root,
+        typeColor(post.frontmatter.type),
+        className,
+      )}
     >
       <Image
         src="/post-title-bg.svg"

@@ -14,8 +14,8 @@
   color: var(--type-color);
   font-size: var(--f4n-font-size-huge);
 
-  margin-top: var(--f4n-spacing-very-large);
-  margin-bottom: var(--f4n-spacing-normal);
+  margin-top: var(--f4n-spacing-huge);
+  margin-bottom: var(--f4n-spacing-large);
 
   line-height: var(--f4n-line-height-bit-loose);
   font-weight: 700;
