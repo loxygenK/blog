@@ -1,11 +1,11 @@
 import { Parsed } from "./markdown";
-import { ProcessedBlog, TagsDefinition, frontMatter } from "./types";
+import { ProcessedBlog, PropertiesDefinition, frontMatter } from "./types";
 
 export type ValidationResult = SuccessfulValidationResult | FailureValidationResult;
 export type SuccessfulValidationResult = { ok: true, path: string, blog: ProcessedBlog };
 export type FailureValidationResult = | { ok: false, path: string, error: any };
 
-export function validateParsedMarkdown(path: string, slug: string, markdown: Parsed, defs: TagsDefinition): ValidationResult {
+export function validateParsedMarkdown(path: string, slug: string, markdown: Parsed, defs: PropertiesDefinition): ValidationResult {
   const parsedFrontMatter = frontMatter.safeParse(markdown.frontmatter);
   if(!parsedFrontMatter.success) {
     return { ok: false, path, error: parsedFrontMatter.error }

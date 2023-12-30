@@ -4,7 +4,7 @@
   "title": "f4n.dev Blog Tags Specification",
   "description": "The specification for tags used in f4n.dev blog, such as caveats, tech tags.",
   "type": "object",
-  "required": ["$schema", "caveats", "techs"],
+  "required": ["$schema", "caveats", "tag"],
   "additionalProperties": false,
   "properties": {
     "$schema": {
