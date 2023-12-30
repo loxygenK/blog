@@ -28,11 +28,7 @@ export const Section = withDefinition(
     }
 
     return (
-      <section
-        className={styles.root}
-        aria-labelledby={`section-caveat_${id}`}
-        aria-describedby={`section-caution_${id}`}
-      >
+      <section className={styles.root} aria-labelledby={`section-caveat_${id}`}>
         <h4
           className={styles.sectionTitle}
           id={`section-caveat_${id}`}
@@ -48,7 +44,7 @@ export const Section = withDefinition(
           }}
         />
         {children}
-        <aside className={styles.generalCaution} id={`section-caution_${id}`}>
+        <aside className={styles.generalCaution}>
           以上の内容は客観的な正確性が担保されていない可能性があります。
         </aside>
       </section>
