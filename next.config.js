@@ -39,6 +39,10 @@ const nextConfig = {
         pathname: "/v/latest/72x72/*"
       }
     ]
+  },
+  experimental: {
+    workerThreads: false,
+    cpus: 1,
   }
 };
 
