@@ -63,8 +63,9 @@ function generateBackgroundDataUri(text: string): CSSProperties {
   const height = FONT_SIZE * 1.5 + 10;
 
   const svg =
-    // biome-ignore lint/style/useTemplate: The resulting string is very long
     (
+      // biome-ignore format: Formatting this piece of code will invalidate the biome-ignore comment below
+      // biome-ignore lint/style/useTemplate: The resulting string is very long
       `<svg xmlns='http://www.w3.org/2000/svg' width='${width}' height='${height}' viewBox='0 0 ${width} ${height}'>` +
       `<text dy="100%" style="fill: red; font-family: Inter, Roboto, Noto Sans JP, sans-serif;">` +
       text +
