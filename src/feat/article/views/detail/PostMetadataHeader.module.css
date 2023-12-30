@@ -4,6 +4,13 @@
   padding: var(--f4n-spacing-very-large) 0;
 }
 
+@media only screen and (max-width: 768px) {
+  .root {
+    border-left-width: 0;
+    padding: 0;
+  }
+}
+
 .bg {
   position: absolute;
   z-index: -1;
@@ -32,6 +39,13 @@
   letter-spacing: var(--f4n-char-spacing-packed);
   line-height: var(--f4n-line-height-bit-loose);
   font-weight: 700;
+}
+
+@media only screen and (max-width: 768px) {
+  .mainTitle {
+    font-size: var(--f4n-font-size-huge);
+    line-height: var(--f4n-line-height-loose);
+  }
 }
 
 .subTitle {

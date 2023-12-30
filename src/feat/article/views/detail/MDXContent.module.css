@@ -2,6 +2,12 @@
   color: hsl(var(--type-color-hue), 43%, 15%);
 }
 
+@media only screen and (max-width: 768px) {
+  .post {
+    padding: 0 var(--f4n-spacing-large);
+  }
+}
+
 .post p {
   font-size: var(--f4n-font-size-large);
   line-height: var(--f4n-line-height-bloody-loose);
@@ -17,6 +23,6 @@
   margin-top: var(--f4n-spacing-huge);
   margin-bottom: var(--f4n-spacing-large);
 
-  line-height: var(--f4n-line-height-bit-loose);
+  line-height: var(--f4n-line-height-loose);
   font-weight: 700;
 }

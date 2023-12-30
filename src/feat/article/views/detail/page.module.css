@@ -1,5 +1,5 @@
 .root {
-  padding: var(--f4n-spacing-very-huge) var(--f4n-spacing-dyn-bloody-huge);
+  padding-top: var(--f4n-spacing-huge);
 }
 
 .article {
@@ -11,8 +11,17 @@
     "content sidebar"
     "footer footer";
 
-  width: calc(100% -  var(--f4n-spacing-dyn-huge));
+  width: calc(100% - var(--f4n-spacing-dyn-huge));
   gap: var(--f4n-spacing-huge) var(--f4n-spacing-dyn-huge);
+}
+
+@media only screen and (max-width: 768px) {
+  .article {
+    display: flex;
+    flex-direction: column;
+    gap: var(--f4n-spacing-huge) 0;
+    width: 100%;
+  }
 }
 
 .header {
@@ -25,6 +34,12 @@
 
 .sidebar {
   grid-area: sidebar;
+}
+
+@media only screen and (max-width: 768px) {
+  .sidebar {
+    display: none;
+  }
 }
 
 .footer {

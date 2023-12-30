@@ -47,7 +47,7 @@
 .mainTitle {
   font-size: var(--f4n-font-size-huge);
   font-style: normal;
-  line-height: var(--f4n-line-height-normal);
+  line-height: var(--f4n-line-height-bit-loose);
   font-weight: 700;
 }
 

@@ -40,6 +40,18 @@ body, * {
   --f4n-char-spacing-loose: 0.5px;
 
   --f4n-font-family-mono: "JetBrains Mono", monospace;
+
+  --f4n-break-sp: (max-width: 768px);
+}
+
+@media only screen and (max-width: 768px) {
+  body, * {
+    --f4n-font-size-dyn-large: clamp(var(--f4n-font-size-small), 4vw, var(--f4n-font-size-large));
+    --f4n-font-size-dyn-huge: clamp(var(--f4n-font-size-normal), 8vw, var(--f4n-font-size-huge));
+
+    --f4n-spacing-dyn-huge: clamp(var(--f4n-spacing-normal), 12vw, var(--f4n-spacing-huge));
+    --f4n-spacing-dyn-bloody-huge: 10vw;
+  }
 }
 
 body {
