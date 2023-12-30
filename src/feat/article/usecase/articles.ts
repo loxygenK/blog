@@ -1,8 +1,9 @@
-import fs from "fs";
 import path from "path";
 import { processBlogArticles } from "blog-processor";
 import { Post } from "../type";
-import { blogComponents } from "../views/detail/blog-components";
+import { blogComponentsFilled } from "../views/detail/blog-components";
+import { retrievePropertyDefinition } from "blog-processor";
+import { PropertiesDefinition } from "blog-processor/types";
 
 const BLOG_ARTICLE_PATH = path.join(
   process.cwd(),
@@ -10,26 +11,22 @@ const BLOG_ARTICLE_PATH = path.join(
 );
 
 export async function retrievePost(key: string): Promise<Post> {
-  const tags = JSON.parse(
-    fs.readFileSync(path.join(BLOG_ARTICLE_PATH, "tags.json")).toString(),
-  );
+  const defs = getDefinition();
   const { articles, timestamps } = await processBlogArticles(
     BLOG_ARTICLE_PATH,
-    tags,
-    blogComponents,
+    defs,
+    blogComponentsFilled(defs),
   );
 
   return articles[key];
 }
 
 export async function getPosts(count: number): Promise<Post[]> {
-  const tags = JSON.parse(
-    fs.readFileSync(path.join(BLOG_ARTICLE_PATH, "tags.json")).toString(),
-  );
+  const defs = getDefinition();
   const { articles, timestamps } = await processBlogArticles(
     BLOG_ARTICLE_PATH,
-    tags,
-    blogComponents,
+    defs,
+    blogComponentsFilled(defs),
   );
 
   const latest = timestamps
@@ -37,4 +34,8 @@ export async function getPosts(count: number): Promise<Post[]> {
     .slice(0, count);
 
   return latest.map(([_, slug]) => articles[slug]);
+}
+
+export function getDefinition(): PropertiesDefinition {
+  return retrievePropertyDefinition(path.join(BLOG_ARTICLE_PATH, "tags.json"));
 }

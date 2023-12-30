@@ -5,6 +5,8 @@ import classNames from "classnames";
 import { typeColor } from "~/style/type-color";
 import styles from "./MDXContent.module.css";
 
+import "highlight.js/styles/base16/one-light.css";
+
 export type MDXContentProps = {
   className: string;
   post: Post;

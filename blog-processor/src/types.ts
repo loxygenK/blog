@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { z } from "zod";
+import { string, z } from "zod";
 
 export const caveat = z.string().min(1).brand("caveat");
 export type Caveat = z.infer<typeof caveat>;
@@ -37,24 +37,30 @@ export type ProcessedBlog = {
   frontmatter: FrontMatter;
 }
 
-export type CaveatDef = {
-  emoji: string;
-  header?: {
-    description: string;
-    label: string;
-  },
-  inline?: {
-    description: string;
-    background: string;
-  }
-};
+export const caveatDef = z.object({
+  emoji: z.string(),
+  header: z.object({
+    description: z.string(),
+    label: z.string(),
+  }).optional(),
+  inline: z.object({
+    description: z.string(),
+    background: z.string(),
+  }).optional(),
+});
 
-export type TechDef = {
-  emoji: string;
-  name: string;
-};
+export type CaveatDef = z.infer<typeof caveatDef>;
 
-export type TagsDefinition = {
-  caveats: Record<string, CaveatDef>,
-  tag: Record<string, TechDef>,
-}
+export const tagsDef = z.object({
+  emoji: z.string(),
+  name: z.string(),
+})
+
+export type TagsDef = z.infer<typeof tagsDef>;
+
+export const propertiesDefinition = z.object({
+  caveats: z.record(z.string(), caveatDef),
+  tag: z.record(z.string(), tagsDef),
+})
+
+export type PropertiesDefinition = z.infer<typeof propertiesDefinition>;

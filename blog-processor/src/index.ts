@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import { ProcessedBlog, TagsDefinition } from "./types";
+import { ProcessedBlog, PropertiesDefinition, propertiesDefinition } from "./types";
 import { walk } from "./fs";
 import { parseMDX } from "./markdown";
 import { FailureValidationResult, validateParsedMarkdown } from "./validator";
@@ -11,7 +11,7 @@ export type BlogArticleRegistry = {
   timestamps: Array<[time: number, slug: string]>;
 }
 
-export async function processBlogArticles(articlePath: string, defs: TagsDefinition, components: Record<string, FC<any>>): Promise<BlogArticleRegistry> {
+export async function processBlogArticles(articlePath: string, defs: PropertiesDefinition, components: Record<string, FC<any>>): Promise<BlogArticleRegistry> {
   const dataPath = path.join(articlePath, "articles");
   if(!fs.existsSync(dataPath)) {
     throw new Error(`The path did not found: ${dataPath}}`);
@@ -48,4 +48,12 @@ export async function processBlogArticles(articlePath: string, defs: TagsDefinit
     articles: postDatabase,
     timestamps,
   };
+}
+
+export function retrievePropertyDefinition(path: string): PropertiesDefinition {
+  const tags = JSON.parse(
+    fs.readFileSync(path).toString()
+  );
+
+  return propertiesDefinition.parse(tags);
 }

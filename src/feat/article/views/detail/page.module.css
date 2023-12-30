@@ -1,5 +1,7 @@
+@layer page {
+
 .root {
-  padding-top: var(--f4n-spacing-huge);
+  padding: var(--f4n-spacing-huge) 15vw;
 }
 
 .article {
@@ -44,4 +46,6 @@
 
 .footer {
   grid-area: footer;
+}
+
 }

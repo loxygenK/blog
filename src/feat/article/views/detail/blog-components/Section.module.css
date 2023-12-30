@@ -1,0 +1,50 @@
+@layer component {
+  .root {
+    position: relative;
+
+    border: 2px solid var(--type-color);
+    padding-bottom: var(--f4n-spacing-large);
+    margin-bottom: var(--f4n-spacing-large);
+    overflow: hidden;
+  }
+
+  .root p {
+    margin: 0 var(--f4n-spacing-large);
+  }
+
+  .root .generalCaution {
+    margin: 0 var(--f4n-spacing-large);
+    font-size: var(--f4n-font-size-small);
+    color: var(--type-color);
+    margin-top: var(--f4n-spacing-tiny);
+  }
+
+  .background {
+    z-index: -1;
+
+    position: absolute;
+    inset: 0;
+    top: 2em;
+    width: 400%;
+    height: 200%;
+    filter: hue-rotate(var(--type-color-hue)) opacity(15%);
+    transform: rotate(-10deg) translateY(-50%) translateX(-50%);
+  }
+
+  .image {
+    opacity: 50%;
+  }
+
+  *:is(h1, h2, h3, h4, h5, h6).sectionTitle {
+    width: 100%;
+    background-color: var(--type-color);
+    color: var(--f4n-white);
+    margin: 0;
+    margin-bottom: var(--f4n-spacing-large);
+    padding: var(--f4n-spacing-small) var(--f4n-spacing-normal);
+    font-weight: 400;
+    font-size: var(--f4n-font-size-normal);
+  }
+
+
+}

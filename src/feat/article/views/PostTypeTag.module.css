@@ -1,3 +1,5 @@
+@layer component {
+
 .root {
   display: inline-flex;
   gap: var(--f4n-spacing-small);
@@ -26,4 +28,7 @@
 
 .caption.outlined {
   color: var(--type-color);
+}
+
+
 }

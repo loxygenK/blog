@@ -1,9 +1,79 @@
-import { FC, ReactNode } from "react";
+import { z } from "zod";
+import { reactNode, runtimeChecked } from "./types";
+import { propertiesDefinition } from "blog-processor/types";
+import { withDefinition } from "./withDef";
 
-type Props = {
-  children: ReactNode;
-};
+import styles from "./Section.module.css";
+import { CSSProperties, useId } from "react";
 
-export const Section: FC<Props> = ({ children }) => {
-  return <section>{children}</section>;
-};
+const props = z.object({
+  children: reactNode,
+  type: z.string(),
+  propsDef: propertiesDefinition,
+});
+
+export const Section = withDefinition(
+  runtimeChecked("Section", props, ({ children, type, propsDef }) => {
+    const id = useId();
+
+    if (!Object.keys(propsDef.caveats).includes(type)) {
+      throw new Error(`The caveat "${type}" does not exist.`);
+    }
+
+    const caveat = propsDef.caveats[type];
+    if (caveat.inline === undefined) {
+      throw new Error(
+        `The caveat "${type}" does exist, but no inline definition found.`
+      );
+    }
+
+    return (
+      <section
+        className={styles.root}
+        aria-labelledby={`section-caveat_${id}`}
+        aria-describedby={`section-caution_${id}`}
+      >
+        <h4
+          className={styles.sectionTitle}
+          id={`section-caveat_${id}`}
+          role="none"
+        >
+          {caveat.inline.description}
+        </h4>
+        <figure
+          aria-hidden
+          className={styles.background}
+          style={{
+            ...generateBackgroundDataUri(caveat.inline.background),
+          }}
+        />
+        {children}
+        <aside className={styles.generalCaution}
+          id={`section-caution_${id}`}
+        >
+          以上の内容は客観的な正確性が担保されていない可能性があります。
+        </aside>
+      </section>
+    );
+  })
+);
+
+function generateBackgroundDataUri(text: string): CSSProperties {
+  const FONT_SIZE = 16;
+
+  const width = (text.length * FONT_SIZE) / 1.5 + 20;
+  const height = FONT_SIZE * 1.5 + 10;
+
+  const svg = (
+    `<svg xmlns='http://www.w3.org/2000/svg' width='${width}' height='${height}' viewBox='0 0 ${width} ${height}'>` +
+    `<text dy="100%" style="fill: red; font-family: Inter, Roboto, Noto Sans JP, sans-serif;">` +
+    text +
+    "</text>" +
+    "</svg>"
+  ).replaceAll('"', "'");
+
+  return {
+    backgroundSize: `${width}px ${height}px`,
+    backgroundImage: `url("data:image/svg+xml;utf8,${svg}")`,
+  };
+}

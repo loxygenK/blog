@@ -1,3 +1,5 @@
+@layer component {
+
 .root {
   position: sticky;
   top: var(--f4n-spacing-very-large);
@@ -12,4 +14,5 @@
   font-size: var(--f4n-font-size-large);
   line-height: var(--f4n-line-height-loose);
   margin-bottom: var(--f4n-spacing-small);
+}
 }
