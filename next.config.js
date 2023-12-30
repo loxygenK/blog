@@ -15,6 +15,7 @@ function parseOtherMonorepoPackage(pkgName, nextLoader) {
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: "export",
   reactStrictMode: true,
   /**
    * @param {import("webpack").Configuration} config
