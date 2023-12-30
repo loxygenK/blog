@@ -1,0 +1,22 @@
+.post {
+  color: hsl(var(--type-color-hue), 43%, 15%);
+}
+
+.post p {
+  font-size: var(--f4n-font-size-large);
+  line-height: var(--f4n-line-height-bloody-loose);
+  letter-spacing: var(--f4n-char-spacing-loose);
+
+  margin-bottom: var(--f4n-spacing-normal);
+}
+
+.post h1 {
+  color: var(--type-color);
+  font-size: var(--f4n-font-size-huge);
+
+  margin-top: var(--f4n-spacing-huge);
+  margin-bottom: var(--f4n-spacing-large);
+
+  line-height: var(--f4n-line-height-bit-loose);
+  font-weight: 700;
+}

@@ -1,17 +1,27 @@
+import { ReactNode } from "react";
 import { z } from "zod";
 
 export const caveat = z.string().min(1).brand("caveat");
 export type Caveat = z.infer<typeof caveat>;
 
-export const tech = z.string().min(1).brand("tech");
-export type Techs = z.infer<typeof tech>;
+export const tag = z.string().min(1).brand("tag");
+export type Tag = z.infer<typeof tag>;
 
 export const frontMatter = z.object({
-  name: z.string().min(1),
-  shortDescription: z.string().min(1),
+  title: z.string().min(1),
+  subTitle: z.string().min(1),
   caveats: z.array(caveat).default([]),
-  techs: z.array(tech).default([]),
+  tags: z.array(tag).default([]),
   date: z.coerce.date(),
+  type: z.string().transform((x) => x.toLowerCase()).pipe(z.union([
+    z.literal("coding"),
+    z.literal("programming"),
+    z.literal("til"),
+    z.literal("mylife"),
+    z.literal("mycareer"),
+    z.literal("release"),
+    z.literal("other"),
+  ])),
   published: z.union([
     z.literal("hidden"),
     z.literal("not-listed"),
@@ -23,7 +33,7 @@ export type FrontMatter = z.infer<typeof frontMatter>;
 
 export type ProcessedBlog = {
   slug: string;
-  mdxContent: string;
+  mdxContent: ReactNode;
   frontmatter: FrontMatter;
 }
 
@@ -46,5 +56,5 @@ export type TechDef = {
 
 export type TagsDefinition = {
   caveats: Record<string, CaveatDef>,
-  techs: Record<string, TechDef>,
+  tag: Record<string, TechDef>,
 }

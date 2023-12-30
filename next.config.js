@@ -30,6 +30,15 @@ const nextConfig = {
     ];
     return config;
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "twemoji.maxcdn.com",
+        pathname: "/v/latest/72x72/*"
+      }
+    ]
+  }
 };
 
 export default withVanillaExtractPlugin(nextConfig);

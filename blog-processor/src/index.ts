@@ -4,13 +4,14 @@ import { ProcessedBlog, TagsDefinition } from "./types";
 import { walk } from "./fs";
 import { parseMDX } from "./markdown";
 import { FailureValidationResult, validateParsedMarkdown } from "./validator";
+import { FC } from "react";
 
 export type BlogArticleRegistry = {
   articles: Record<string, ProcessedBlog>;
   timestamps: Array<[time: number, slug: string]>;
 }
 
-export async function processBlogArticles(articlePath: string, defs: TagsDefinition): Promise<BlogArticleRegistry> {
+export async function processBlogArticles(articlePath: string, defs: TagsDefinition, components: Record<string, FC<any>>): Promise<BlogArticleRegistry> {
   const dataPath = path.join(articlePath, "articles");
   if(!fs.existsSync(dataPath)) {
     throw new Error(`The path did not found: ${dataPath}}`);
@@ -22,7 +23,7 @@ export async function processBlogArticles(articlePath: string, defs: TagsDefinit
   for (const [path, slug] of walk(dataPath)) {
     const fileContent = fs.readFileSync(path).toString();
 
-    const parsed = await parseMDX(fileContent);
+    const parsed = await parseMDX(fileContent, components);
     const validated = validateParsedMarkdown(path, slug, parsed, defs);
 
     if(!validated.ok) {

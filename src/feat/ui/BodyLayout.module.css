@@ -1,0 +1,12 @@
+.body > * {
+  margin-bottom: 5em;
+}
+
+.main {
+  margin: 0 auto;
+  width: 100%;
+  padding-left: 7vw;
+  padding-right: 7vw;
+
+  min-width: 200px;
+}

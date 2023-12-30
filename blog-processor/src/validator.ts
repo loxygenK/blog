@@ -12,10 +12,10 @@ export function validateParsedMarkdown(path: string, slug: string, markdown: Par
   };
 
   const availableCaveats = Object.keys(defs.caveats);
-  const availableTechs = Object.keys(defs.techs);
+  const availableTags = Object.keys(defs.tag);
 
   const unknownCaveats = parsedFrontMatter.data.caveats.filter((caveat) => !availableCaveats.includes(caveat));
-  const unknownTechs = parsedFrontMatter.data.techs.filter((caveat) => !availableTechs.includes(caveat));
+  const unknownTechs = parsedFrontMatter.data.tags.filter((tag) => !availableTags.includes(tag));
 
   if(unknownCaveats.length > 0) {
     return { ok: false, path, error: new Error(`The caveat was not included in the definition: ${unknownCaveats.join(", ")}`) }
@@ -29,7 +29,7 @@ export function validateParsedMarkdown(path: string, slug: string, markdown: Par
     path,
     blog: {
       slug,
-      mdxContent: markdown.jsxSource,
+      mdxContent: markdown.element,
       frontmatter: parsedFrontMatter.data,
     }
   }

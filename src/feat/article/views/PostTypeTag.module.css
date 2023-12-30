@@ -1,0 +1,29 @@
+.root {
+  display: inline-flex;
+  gap: var(--f4n-spacing-small);
+  padding: var(--f4n-spacing-small) var(--f4n-spacing-normal);
+  list-style: none;
+  width: fit-content;
+}
+
+.root:not(.outlined) {
+  background: var(--type-color);
+}
+
+.root.outlined {
+  border: 2px solid var(--type-color);
+}
+
+.caption {
+  font-size: var(--f4n-font-size-small);
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.caption:not(.outlined) {
+  color: var(--f4n-white);
+}
+
+.caption.outlined {
+  color: var(--type-color);
+}
