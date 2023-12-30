@@ -1,10 +1,10 @@
+import { propertiesDefinition } from "blog-processor/types";
 import { z } from "zod";
 import { reactNode, runtimeChecked } from "./types";
-import { propertiesDefinition } from "blog-processor/types";
 import { withDefinition } from "./withDef";
 
-import styles from "./Section.module.css";
 import { CSSProperties, useId } from "react";
+import styles from "./Section.module.css";
 
 const props = z.object({
   children: reactNode,
@@ -23,7 +23,7 @@ export const Section = withDefinition(
     const caveat = propsDef.caveats[type];
     if (caveat.inline === undefined) {
       throw new Error(
-        `The caveat "${type}" does exist, but no inline definition found.`
+        `The caveat "${type}" does exist, but no inline definition found.`,
       );
     }
 
@@ -48,14 +48,12 @@ export const Section = withDefinition(
           }}
         />
         {children}
-        <aside className={styles.generalCaution}
-          id={`section-caution_${id}`}
-        >
+        <aside className={styles.generalCaution} id={`section-caution_${id}`}>
           以上の内容は客観的な正確性が担保されていない可能性があります。
         </aside>
       </section>
     );
-  })
+  }),
 );
 
 function generateBackgroundDataUri(text: string): CSSProperties {
@@ -64,13 +62,16 @@ function generateBackgroundDataUri(text: string): CSSProperties {
   const width = (text.length * FONT_SIZE) / 1.5 + 20;
   const height = FONT_SIZE * 1.5 + 10;
 
-  const svg = (
-    `<svg xmlns='http://www.w3.org/2000/svg' width='${width}' height='${height}' viewBox='0 0 ${width} ${height}'>` +
-    `<text dy="100%" style="fill: red; font-family: Inter, Roboto, Noto Sans JP, sans-serif;">` +
-    text +
-    "</text>" +
-    "</svg>"
-  ).replaceAll('"', "'");
+  const svg =
+    (
+      // biome-ignore format: Formatting this piece of code will invalidate the biome-ignore comment below
+      // biome-ignore lint/style/useTemplate: The resulting string is very long
+      `<svg xmlns='http://www.w3.org/2000/svg' width='${width}' height='${height}' viewBox='0 0 ${width} ${height}'>` +
+      `<text dy="100%" style="fill: red; font-family: Inter, Roboto, Noto Sans JP, sans-serif;">` +
+      text +
+      "</text>" +
+      "</svg>"
+    ).replaceAll('"', "'");
 
   return {
     backgroundSize: `${width}px ${height}px`,
