@@ -1,5 +1,6 @@
 .post {
-  color: hsl(var(--type-color-hue), 43%, 15%);
+  color: hsl(var(--type-color-hue), 43%, 20%);
+  font-size: var(--f4n-font-size-large);
 }
 
 @media only screen and (max-width: 768px) {
@@ -9,20 +10,130 @@
 }
 
 .post p {
-  font-size: var(--f4n-font-size-large);
   line-height: var(--f4n-line-height-bloody-loose);
   letter-spacing: var(--f4n-char-spacing-loose);
 
-  margin-bottom: var(--f4n-spacing-normal);
+  margin-bottom: var(--f4n-spacing-large);
+}
+
+.post em {
+  font-style: italic;
+}
+
+.post *:is(small, sub, sup) {
+  font-size: .83em;
+}
+
+.post sub {
+  vertical-align: sub;
+}
+
+.post sup {
+  vertical-align: super;
+}
+
+.post pre {
+  border: 2px solid var(--type-color);
+  font-size: var(--f4n-font-size-small);
+  font-family: var(--f4n-font-family-mono);
+}
+
+.post *:not(pre) > code {
+  font-size: var(--f4n-font-size-small);
+  font-family: var(--f4n-font-family-mono);
+  letter-spacing: 0;
+  font-weight: 300;
+
+  padding: 0.1em 0.5em;
+  background-color: rgba(230 230 230 / 0.5);
+  border-radius: 2px;
+}
+
+.post *:is(h1, h2, h3, h4, h5, h6, strong) code {
+  font-weight: 500;
+}
+
+.post strong {
+  font-weight: 600 !important;
+}
+
+.post *:is(ul, ol) {
+  margin-left: 2em;
+  margin-top: var(--f4n-spacing-large);
+  margin-bottom: var(--f4n-spacing-large);
+}
+
+.post ul {
+  list-style: disc;
+}
+
+.post ol {
+  list-style: decimal;
+}
+
+.post *:is(ul, ol) > *:not(:first-of-type) {
+  margin-top: var(--f4n-spacing-large);
+}
+
+.post li {
+  padding-left: 0.5em;
+}
+
+.post *:is(h1, h2, h3, h4, h5, h6) {
+  color: var(--type-color);
+  line-height: var(--f4n-line-height-loose);
+  font-weight: 700;
+  font-size: calc(var(--f4n-font-size-huge) * var(--size));
+  margin-top: calc(var(--f4n-spacing-huge) * var(--size));
+  margin-bottom: calc(var(--f4n-spacing-large) * var(--size));
 }
 
 .post h1 {
-  color: var(--type-color);
-  font-size: var(--f4n-font-size-huge);
+  --size: 1.2;
+}
 
-  margin-top: var(--f4n-spacing-huge);
-  margin-bottom: var(--f4n-spacing-large);
+.post h2 {
+  --size: 1;
+}
 
-  line-height: var(--f4n-line-height-loose);
-  font-weight: 700;
+.post h3 {
+  --size: 0.8;
+}
+
+.post h4 {
+  --size: 0.65;
+}
+
+.post h5 {
+  --size: 0.5;
+}
+
+.post h6 {
+  --size: 0.4;
+}
+
+.post a {
+  text-decoration: underline;
+  color: var(--f4n-primary);
+}
+
+.post a:visited {
+  color: var(--f4n-text-primary);
+}
+
+.post table {
+  border-collapse: collapse;
+  gap: 0.5em;
+  border-style: hidden;
+  margin: var(--f4n-spacing-large) 0;
+}
+
+.post thead {
+  background-color: hsla(var(--type-color-hue), 80%, 80%, 10%);
+  font-weight: 600;
+}
+
+.post *:is(th, td) {
+  padding: 0.5em 1em;
+  border: 1px solid var(--type-color);
 }

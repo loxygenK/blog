@@ -9,7 +9,13 @@ export const Introduction: FC = () => {
       <hgroup className={styles.title}>
         <h1 aria-label="Flisan's Blog" className={styles.title}>
           <figure className={styles.imageWrapper}>
-            <Image src="/logo.svg" alt="Flisan's Blog" aria-hidden fill />
+            <Image
+              src="/logo.svg"
+              alt="Flisan's Blog"
+              aria-hidden
+              fill
+              priority
+            />
           </figure>
           <span className={styles.headingText}>Flisan's Blog</span>
         </h1>

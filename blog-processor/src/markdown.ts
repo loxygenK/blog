@@ -1,6 +1,7 @@
 import remarkGfm from "remark-gfm";
 import remarkGemoji from "remark-gemoji";
 import remarkMath from "remark-math";
+import rehypeHighlight from "rehype-highlight";
 import rehypeKaTeX from "rehype-katex";
 import { compileMDX } from "next-mdx-remote/rsc";
 import { FC, ReactNode } from "react";
@@ -19,8 +20,8 @@ export async function parseMDX(content: string, components: Record<string, FC<an
     options: {
       mdxOptions: {
         remarkPlugins: [remarkMath, remarkGfm, remarkGemoji],
-        // @ts-expect-error -- Version issue
-        rehypePlugins: [rehypeKaTeX],
+        // @ts-expect-error -- Version issue on VFile
+        rehypePlugins: [rehypeKaTeX, rehypeHighlight],
       },
       parseFrontmatter: true,
     },
