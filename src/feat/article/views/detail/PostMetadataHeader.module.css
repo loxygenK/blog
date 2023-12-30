@@ -1,3 +1,5 @@
+@layer component {
+
 .root {
   position: relative;
   border-left: 4px solid var(--type-color);
@@ -55,4 +57,6 @@
   font-size: var(--f4n-font-size-normal);
   letter-spacing: var(--f4n-char-spacing-packed);
   font-weight: 300;
+}
+
 }

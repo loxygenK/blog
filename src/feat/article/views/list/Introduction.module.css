@@ -1,3 +1,5 @@
+@layer component {
+
 .root {
   display: flex;
   flex-direction: column;
@@ -44,4 +46,7 @@
   position: relative;
   width: 100%;
   aspect-ratio: 319 / 63;
+}
+
+
 }

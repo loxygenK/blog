@@ -1,3 +1,5 @@
+@layer component {
+
 .root {
   transition: all 200ms;
 }
@@ -72,4 +74,6 @@
   transition: all 200ms;
   text-align: center;
   overflow: hidden;
+}
+
 }
