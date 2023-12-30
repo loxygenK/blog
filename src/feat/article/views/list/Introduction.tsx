@@ -6,8 +6,8 @@ import styles from "./Introduction.module.css";
 export const Introduction: FC = () => {
   return (
     <section className={styles.root}>
-      <hgroup>
-        <h1 aria-label="Flisan's Blog">
+      <hgroup className={styles.title}>
+        <h1 aria-label="Flisan's Blog" className={styles.title}>
           <figure className={styles.imageWrapper}>
             <Image src="/logo.svg" alt="Flisan's Blog" aria-hidden fill />
           </figure>

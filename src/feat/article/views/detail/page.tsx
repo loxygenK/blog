@@ -19,6 +19,7 @@ export const PostDetailPage: FC<Props> = ({ post }) => {
       header={
         <Header topics={[{ text: post.frontmatter.title, link: "./" }]} />
       }
+      noHorizontalPadding
     >
       <article className={styles.article}>
         <PostMetadataHeader className={styles.header} post={post} />

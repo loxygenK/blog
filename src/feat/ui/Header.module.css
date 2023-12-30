@@ -5,7 +5,7 @@
   display: flex;
 
   width: 100%;
-  background-color: rgb(255 255 255 / 0.75);
+  background-color: rgb(255 255 255 / 0.85);
   padding: 6px 8px;
 
   color: var(--f4n-text-primary);
@@ -20,12 +20,14 @@
 
 .listWrap {
   display: flex;
+  flex-wrap: wrap;
   gap: var(--f4n-spacing-small);
 }
 
 .eachLink {
   border-left: 0 solid var(--f4n-text-primary);
   transition: 150ms all;
+  width: max-content;
 }
 
 .eachLink:focus, .eachLink:hover {
