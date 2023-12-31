@@ -17,6 +17,9 @@ dependencies:
   '@vanilla-extract/next-plugin':
     specifier: ^2.3.2
     version: 2.3.2(@types/node@20.10.5)(next@14.0.4)(sass@1.69.5)(webpack@5.89.0)
+  async-mutex:
+    specifier: ^0.4.0
+    version: 0.4.0
   blog-processor:
     specifier: link:blog-processor
     version: link:blog-processor
@@ -1410,6 +1413,12 @@ packages:
   /astring@1.8.6:
     resolution: {integrity: sha512-ISvCdHdlTDlH5IpxQJIex7BWBywFWgjJSVdwst+/iQCoEYnyOaQ95+X1JGshuBjGp6nxKUy1jMgE3zPqN7fQdg==}
     hasBin: true
+    dev: false
+
+  /async-mutex@0.4.0:
+    resolution: {integrity: sha512-eJFZ1YhRR8UN8eBLoNzcDPcy/jqjsg6I1AP+KvWQX80BqOSW1oJPJXDylPUEeMr2ZQvHgnQ//Lp6f3RQ1zI7HA==}
+    dependencies:
+      tslib: 2.6.2
     dev: false
 
   /asynckit@0.4.0:

@@ -15,6 +15,7 @@ function parseOtherMonorepoPackage(pkgName, nextLoader) {
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: "export",
   reactStrictMode: true,
   /**
    * @param {import("webpack").Configuration} config
@@ -38,6 +39,10 @@ const nextConfig = {
         pathname: "/v/latest/72x72/*"
       }
     ]
+  },
+  experimental: {
+    workerThreads: false,
+    cpus: 1,
   }
 };
 

@@ -1,0 +1,3 @@
+[submodule "blog-articles-for-test"]
+	path = blog-articles-for-test
+	url = https://github.com/loxygenK/blog-articles-for-test
