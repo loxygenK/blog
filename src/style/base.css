@@ -5,6 +5,7 @@
 @layer global {
   html, body, * {
     --f4n-white: white;
+    --f4n-gray: #888888;
     --f4n-primary: #ED2A87;
     --f4n-text-primary: #ca0b67;
 
