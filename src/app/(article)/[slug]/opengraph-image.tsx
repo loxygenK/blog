@@ -1,13 +1,13 @@
 import { ImageResponse } from "next/og";
 
 import { PostAPIResponse, postAPIUrl } from "~/app/api/post/[slug]/path";
+import { baseUrl } from "~/config";
 import { retrievePost } from "~/feat/article/usecase/articles";
 import {
   OGImage,
   generateFontConfiguration,
 } from "~/feat/article/views/og/image";
 import styles from "./opengraph-image.module.css";
-import { baseUrl } from "~/config";
 
 type Props = {
   params: {
