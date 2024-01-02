@@ -2,8 +2,8 @@ import { Heading } from "blog-processor/types";
 import classNames from "classnames";
 import { FC } from "react";
 
-import styles from "./PostToc.module.css";
 import Link from "next/link";
+import styles from "./PostToc.module.css";
 
 type Props = {
   className?: string;
