@@ -3,6 +3,7 @@ import { typeColorHex } from "~/style/type-color";
 import { Post } from "../../type";
 
 import { ImageResponseOptions } from "next/server";
+import { baseUrl } from "~/config";
 import { fonts } from "~/style/font";
 
 type Props = {
@@ -36,7 +37,7 @@ async function fontConfig<const F extends keyof typeof fonts>(
   font: F,
   weight: keyof (typeof fonts)[F],
 ): Promise<FontConfig> {
-  const url = new URL(`http://localhost:3000${fonts[font][weight]}`);
+  const url = new URL(`${baseUrl}${fonts[font][weight]}`);
 
   const fontData = await fetch(url).then((res) => res.arrayBuffer());
 
@@ -51,7 +52,7 @@ async function fontConfig<const F extends keyof typeof fonts>(
 // Apparently CSS cannot be used in OG image generation.
 const styles = {
   root: {
-    backgroundImage: "url('http://localhost:3000/ogbg.png')",
+    backgroundImage: `url('${baseUrl}/ogbg.png')`,
     width: "1200px",
     height: "630px",
     padding: "100px 100px",
