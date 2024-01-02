@@ -9,15 +9,7 @@ type Props = {
 };
 
 export default async function Post({ params: { slug } }: Props) {
-  const headers = new Headers();
-  headers.append("Content-Type", "application/json");
-
-  const url = `http://localhost:3000/${postAPIUrl(slug)}`;
-  console.info({ url });
-
-  const post: PostAPIResponse = await fetch(url, { headers }).then((res) =>
-    res.json(),
-  );
+  const post = await retrievePost(slug);
 
   return (
     <div

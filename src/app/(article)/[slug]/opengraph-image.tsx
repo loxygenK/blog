@@ -14,7 +14,7 @@ type Props = {
   };
 };
 
-export const runtime = "edge";
+export const runtime = "nodejs";
 export const alt = "Flisan's Blog - Post";
 export const size = {
   width: 1200,
@@ -22,9 +22,7 @@ export const size = {
 };
 
 export default async function Post({ params: { slug } }: Props) {
-  const post: PostAPIResponse = await fetch(
-    `http://localhost:3000/${postAPIUrl(slug)}`,
-  ).then((res) => res.json());
+  const post = await retrievePost(slug);
 
   return new ImageResponse(<OGImage post={post} />, {
     fonts: await generateFontConfiguration(),
