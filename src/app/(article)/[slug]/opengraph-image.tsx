@@ -7,6 +7,7 @@ import {
   generateFontConfiguration,
 } from "~/feat/article/views/og/image";
 import styles from "./opengraph-image.module.css";
+import { baseUrl } from "~/config";
 
 type Props = {
   params: {
@@ -23,7 +24,7 @@ export const size = {
 
 export default async function Post({ params: { slug } }: Props) {
   const post: PostAPIResponse = await fetch(
-    `http://localhost:3000/${postAPIUrl(slug)}`,
+    `${baseUrl}/${postAPIUrl(slug)}`,
   ).then((res) => res.json());
 
   return new ImageResponse(<OGImage post={post} />, {
