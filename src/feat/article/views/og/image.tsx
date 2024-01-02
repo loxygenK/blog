@@ -2,18 +2,20 @@ import { CSSProperties, FC } from "react";
 import { typeColorHex } from "~/style/type-color";
 import { Post } from "../../type";
 
-import { ImageResponseOptions } from "next/server";
-import { baseUrl } from "~/config";
-import { fonts } from "~/style/font";
-
 type Props = {
+  background: string;
   post: Pick<Post, "frontmatter">;
 };
 
-export const OGImage: FC<Props> = ({ post }) => {
+export const OGImage: FC<Props> = ({ background, post }) => {
   return (
     <figure
-      style={{ ...styles.root, color: typeColorHex[post.frontmatter.type] }}
+      style={{
+        ...styles.root,
+        color: typeColorHex[post.frontmatter.type],
+        background: `url(${background})`,
+        backgroundSize: "1200px 630px",
+      }}
       aria-hidden
     >
       <p style={styles.title}>{post.frontmatter.title}</p>
@@ -22,37 +24,9 @@ export const OGImage: FC<Props> = ({ post }) => {
   );
 };
 
-type FontConfig = Exclude<ImageResponseOptions["fonts"], undefined>[number];
-
-export async function generateFontConfiguration(): Promise<FontConfig[]> {
-  return await Promise.all([
-    fontConfig("Inter", 400),
-    fontConfig("Inter", 700),
-    fontConfig("NotoSansJP", 400),
-    fontConfig("NotoSansJP", 700),
-  ]);
-}
-
-async function fontConfig<const F extends keyof typeof fonts>(
-  font: F,
-  weight: keyof (typeof fonts)[F],
-): Promise<FontConfig> {
-  const url = new URL(`${baseUrl}${fonts[font][weight]}`);
-
-  const fontData = await fetch(url).then((res) => res.arrayBuffer());
-
-  type DefinedWeight = keyof (typeof fonts)[keyof typeof fonts];
-  return {
-    name: font,
-    weight: weight as DefinedWeight,
-    data: fontData,
-  };
-}
-
 // Apparently CSS cannot be used in OG image generation.
 const styles = {
   root: {
-    backgroundImage: `url('${baseUrl}/ogbg.png')`,
     width: "1200px",
     height: "630px",
     padding: "100px 100px",
