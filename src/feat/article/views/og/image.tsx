@@ -3,8 +3,8 @@ import { typeColorHex } from "~/style/type-color";
 import { Post } from "../../type";
 
 import { ImageResponseOptions } from "next/server";
-import { fonts } from "~/style/font";
 import { baseUrl } from "~/config";
+import { fonts } from "~/style/font";
 
 type Props = {
   post: Pick<Post, "frontmatter">;
