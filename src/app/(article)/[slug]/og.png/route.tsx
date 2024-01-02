@@ -1,11 +1,11 @@
 import { ImageResponse } from "next/og";
 
 import { getPosts, retrievePost } from "~/feat/article/usecase/articles";
+import { OGImage } from "~/feat/article/views/og/image";
 import {
-  OGImage,
   generateBackgroundImageUrl,
   generateFontConfiguration,
-} from "~/feat/article/views/og/image";
+} from "~/feat/article/views/og/staticAsset";
 
 type Props = {
   params: {
