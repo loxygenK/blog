@@ -25,10 +25,10 @@
     position: absolute;
     inset: 0;
     top: 2em;
-    width: 400%;
+    width: 200%;
     height: 200%;
     filter: hue-rotate(var(--type-color-hue)) opacity(15%);
-    transform: rotate(-10deg) translateY(-50%) translateX(-50%);
+    transform: rotate(-5deg) translateY(-50%) translateX(-25%);
   }
 
   .image {
