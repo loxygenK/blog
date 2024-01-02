@@ -14,7 +14,9 @@ export default async function Post({ params: { slug } }: Props) {
   return <PostDetailPage post={post} />;
 }
 
-export async function generateMetadata({ params: { slug }}: Props): Promise<Metadata> {
+export async function generateMetadata({
+  params: { slug },
+}: Props): Promise<Metadata> {
   const post = await retrievePost(slug);
 
   return {
@@ -25,8 +27,8 @@ export async function generateMetadata({ params: { slug }}: Props): Promise<Meta
       description: post.frontmatter.subTitle,
       releaseDate: post.frontmatter.date.toISOString(),
       modifiedTime: post.frontmatter.date.toISOString(),
-    }
-  }
+    },
+  };
 }
 
 export async function generateStaticParams() {

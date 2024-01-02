@@ -15,17 +15,26 @@ export default async function Post({ params: { slug } }: Props) {
   const url = `http://localhost:3000/${postAPIUrl(slug)}`;
   console.info({ url });
 
-  const post: PostAPIResponse = await fetch(url, { headers }).then((res) => res.json());
+  const post: PostAPIResponse = await fetch(url, { headers }).then((res) =>
+    res.json(),
+  );
 
   return (
-    <div style={{ display: "flex", alignItems: "center", justifyContent: "center", height: "100vh", background: "#77ff77" }}>
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        height: "100vh",
+        background: "#77ff77",
+      }}
+    >
       <div style={{ border: "4px solid red" }}>
         <OGImage post={post} />
       </div>
     </div>
-  )
+  );
 }
-
 
 export async function generateStaticParams() {
   const posts = await getPosts(10);

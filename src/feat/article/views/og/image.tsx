@@ -1,46 +1,46 @@
 import { CSSProperties, FC } from "react";
-import { Post } from "../../type";
 import { typeColorHex } from "~/style/type-color";
+import { Post } from "../../type";
 
 import { ImageResponseOptions } from "next/server";
 import { fonts } from "~/style/font";
 
 type Props = {
   post: Pick<Post, "frontmatter">;
-}
+};
 
 export const OGImage: FC<Props> = ({ post }) => {
   return (
-    <figure style={{ ...styles.root, color: typeColorHex[post.frontmatter.type] }} aria-hidden>
-      <p style={styles.title}>
-        { post.frontmatter.title }
-      </p>
-      <p style={styles.subTitle}>
-        { post.frontmatter.subTitle }
-      </p>
+    <figure
+      style={{ ...styles.root, color: typeColorHex[post.frontmatter.type] }}
+      aria-hidden
+    >
+      <p style={styles.title}>{post.frontmatter.title}</p>
+      <p style={styles.subTitle}>{post.frontmatter.subTitle}</p>
     </figure>
-  )
-}
+  );
+};
 
 type FontConfig = Exclude<ImageResponseOptions["fonts"], undefined>[number];
 
 export async function generateFontConfiguration(): Promise<FontConfig[]> {
-  return (
-    await Promise.all([
-      fontConfig("Inter", 400),
-      fontConfig("Inter", 700),
-      fontConfig("NotoSansJP", 400),
-      fontConfig("NotoSansJP", 700),
-    ])
-  )
+  return await Promise.all([
+    fontConfig("Inter", 400),
+    fontConfig("Inter", 700),
+    fontConfig("NotoSansJP", 400),
+    fontConfig("NotoSansJP", 700),
+  ]);
 }
 
-async function fontConfig<const F extends keyof typeof fonts>(font: F, weight: keyof typeof fonts[F]): Promise<FontConfig> {
-  const url =  new URL(`http://localhost:3000${fonts[font][weight]}`);
+async function fontConfig<const F extends keyof typeof fonts>(
+  font: F,
+  weight: keyof (typeof fonts)[F],
+): Promise<FontConfig> {
+  const url = new URL(`http://localhost:3000${fonts[font][weight]}`);
 
   const fontData = await fetch(url).then((res) => res.arrayBuffer());
 
-  type DefinedWeight = keyof typeof fonts[keyof typeof fonts];
+  type DefinedWeight = keyof (typeof fonts)[keyof typeof fonts];
   return {
     name: font,
     weight: weight as DefinedWeight,
@@ -74,5 +74,5 @@ const styles = {
     lineHeight: "100%",
     letterSpacing: "-1px",
     fontWeight: 400,
-  }
+  },
 } satisfies Record<string, CSSProperties>;

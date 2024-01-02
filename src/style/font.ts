@@ -3,7 +3,12 @@ const availableFonts = {
   NotoSansJP: [400, 700],
 } as const;
 
-type Font<T> = { [key in keyof typeof availableFonts]: Record<typeof availableFonts[key][number], T> }
+type Font<T> = {
+  [key in keyof typeof availableFonts]: Record<
+    (typeof availableFonts)[key][number],
+    T
+  >;
+};
 
 export const fonts = {
   Inter: {
