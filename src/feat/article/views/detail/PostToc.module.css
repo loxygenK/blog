@@ -1,0 +1,64 @@
+@layer component {
+  .tocLabel {
+    width: fit-content;
+    background-color: var(--type-color);
+    padding: var(--f4n-spacing-small) var(--f4n-spacing-large);
+    color: white;
+  }
+
+  .nav > .list {
+    margin-left: 0;
+  }
+
+  .list {
+    margin-left: var(--f4n-spacing-large);
+    margin-top: var(--f4n-spacing-small);
+  }
+
+  .detailed .list {
+    margin-left: var(--f4n-spacing-large);
+    margin-top: var(--f4n-spacing-normal);
+  }
+
+  .list > *:not(:first-of-type) {
+    margin-top: var(--f4n-spacing-small);
+  }
+
+  .detailed .list > *:not(:first-of-type) {
+    margin-top: var(--f4n-spacing-normal);
+  }
+
+  .element {
+    color: var(--type-color);
+  }
+
+  .detailed .element {
+    font-size: 110%;
+  }
+
+  .element:is(:hover, :focus) {
+    text-decoration: underline;
+  }
+
+  .topLevel > .element {
+    display: flex;
+    font-size: 110%;
+    font-weight: 600;
+    align-items: baseline;
+  }
+
+  .detailed .topLevel > .element {
+    font-size: 120%;
+  }
+
+  .topLevel > .element::before {
+    font-weight: 300;
+    font-size: var(--f4n-font-size-small);
+    color: var(--type-color);
+    padding-right: var(--f4n-spacing-tiny);
+  }
+
+  .TopLevel > .list {
+    margin-left: var(--f4n-spacing-very-large);
+  }
+}

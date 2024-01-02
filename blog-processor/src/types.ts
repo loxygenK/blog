@@ -31,10 +31,19 @@ export const frontMatter = z.object({
 })
 export type FrontMatter = z.infer<typeof frontMatter>;
 
+export type Heading = {
+  depth: number,
+  content: string,
+  children: Array<Heading>,
+  linkId: string;
+  parent: Heading | undefined;
+}
+
 export type ProcessedBlog = {
   slug: string;
   mdxContent: ReactNode;
   frontmatter: FrontMatter;
+  headings: Array<Heading>;
 }
 
 export const caveatDef = z.object({

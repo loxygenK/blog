@@ -5,7 +5,10 @@ import { Post } from "../../type";
 import { MDXContent } from "./MDXContent";
 import { PostMetadataHeader } from "./PostMetadataHeader";
 
+import classNames from "classnames";
+import { typeColor } from "~/style/type-color";
 import { PostMetadataSidebar } from "./PostMetadataSidebar";
+import { PostToc } from "./PostToc";
 import styles from "./page.module.css";
 
 type Props = {
@@ -21,9 +24,17 @@ export const PostDetailPage: FC<Props> = ({ post }) => {
       }
       noHorizontalPadding
     >
-      <article className={styles.article}>
+      <article
+        className={classNames(styles.article, typeColor(post.frontmatter.type))}
+      >
         <PostMetadataHeader className={styles.header} post={post} />
         <PostMetadataSidebar className={styles.sidebar} post={post} />
+        <PostToc
+          className={styles.toc}
+          headings={post.headings}
+          maximumDepth={3}
+          detailed
+        />
         <MDXContent className={styles.content} post={post} />
       </article>
     </BodyLayout>

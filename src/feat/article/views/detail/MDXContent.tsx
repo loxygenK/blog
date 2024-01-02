@@ -6,6 +6,8 @@ import { typeColor } from "~/style/type-color";
 import styles from "./MDXContent.module.css";
 
 import "highlight.js/styles/base16/one-light.css";
+import "./MDXContent.global.css";
+import { PostToc } from "./PostToc";
 
 export type MDXContentProps = {
   className: string;

@@ -31,6 +31,7 @@ export function validateParsedMarkdown(path: string, slug: string, markdown: Par
       slug,
       mdxContent: markdown.element,
       frontmatter: parsedFrontMatter.data,
+      headings: markdown.headings,
     }
   }
 }

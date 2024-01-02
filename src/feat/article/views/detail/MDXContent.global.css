@@ -1,0 +1,33 @@
+@layer component {
+  .toc {
+    border: 2px solid var(--type-color);
+    padding: var(--f4n-spacing-large) var(--f4n-spacing-large);
+  }
+
+  .toc ol {
+    margin-top: var(--f4n-spacing-normal);
+    margin-bottom: 0;
+  }
+
+  .toc li::marker {
+    color: var(--type-color);
+    font-size: var(--f4n-font-size-normal);
+    font-weight: 700;
+  }
+
+  .toc ol *:not(:first-of-type) {
+    margin: 0;
+    margin-top: var(--f4n-spacing-small);
+  }
+
+  .toc *:is(.toc-link-h1, .toc-link-h2, .toc-link-h3) {
+    font-size: var(--f4n-font-size-normal);
+    font-weight: 600;
+  }
+
+  .toc .toc-link-h3 {
+    font-size: var(--f4n-font-size-small);
+    font-weight: 400;
+  }
+
+}
