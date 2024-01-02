@@ -35,6 +35,7 @@ export type Heading = {
   depth: number,
   content: string,
   children: Array<Heading>,
+  linkId: string;
   parent: Heading | undefined;
 }
 

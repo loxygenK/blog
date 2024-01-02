@@ -3,6 +3,7 @@ import classNames from "classnames";
 import { FC } from "react";
 
 import styles from "./PostToc.module.css";
+import Link from "next/link";
 
 type Props = {
   className?: string;
@@ -43,9 +44,12 @@ const PostTocList: FC<Omit<Props, "navClassName">> = ({
               styles.elementWrapper,
             )}
           >
-            <span className={classNames(heading.depth === 1, styles.element)}>
+            <Link
+              href={`#${heading.linkId}`}
+              className={classNames(heading.depth === 1, styles.element)}
+            >
               {heading.content}
-            </span>
+            </Link>
             {heading.children.length > 0 && (
               <PostTocList
                 headings={heading.children}

@@ -3,13 +3,14 @@ import remarkGemoji from "remark-gemoji";
 import remarkMath from "remark-math";
 import rehypeHighlight from "rehype-highlight";
 import rehypeKaTeX from "rehype-katex";
-import rehypeToc from "@jsdevtools/rehype-toc";
+import rehypeSlug from "rehype-slug";
 import { compileMDX } from "next-mdx-remote/rsc";
 import { FC, ReactNode } from "react";
 import { fromMarkdown } from "mdast-util-from-markdown";
 import { visit } from "unist-util-visit";
 import { toString as treeToString } from "mdast-util-to-string";
 import { Heading } from "./types";
+import GitHubSlugger from "github-slugger";
 
 export type Parsed = {
   element: ReactNode,
@@ -34,7 +35,7 @@ export async function parseMDX(content: string, components: Record<string, FC<an
       mdxOptions: {
         remarkPlugins: [remarkMath, remarkGfm, remarkGemoji],
         // @ts-expect-error -- Version issue on VFile
-        rehypePlugins: [rehypeKaTeX, rehypeHighlight],
+        rehypePlugins: [rehypeKaTeX, rehypeHighlight, rehypeSlug],
       },
       parseFrontmatter: true,
     },
@@ -51,11 +52,16 @@ function generateHeadingTree(content: string): Array<Heading> {
   let lastHeadingObject: Heading | undefined = undefined;
   const headings: Array<Heading> = [];
 
+  const slugger = new GitHubSlugger();
+
   visit(fromMarkdown(content), "heading", (heading) => {
+    const content = treeToString(heading.children);
+
     const headingObject: Heading = {
       depth: heading.depth,
-      content: treeToString(heading.children),
+      content,
       children: [],
+      linkId: slugger.slug(content),
       parent: undefined,
     };
 

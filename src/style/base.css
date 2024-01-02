@@ -3,7 +3,7 @@
 @layer empty, reset, global, base, page, component;
 
 @layer global {
-  body, * {
+  html, body, * {
     --f4n-white: white;
     --f4n-primary: #ED2A87;
     --f4n-text-primary: #ca0b67;
@@ -58,6 +58,10 @@
       --f4n-spacing-dyn-huge: clamp(var(--f4n-spacing-normal), 12vw, var(--f4n-spacing-huge));
       --f4n-spacing-dyn-bloody-huge: 10vw;
     }
+  }
+
+  html {
+    scroll-padding-top: var(--f4n-spacing-very-huge);
   }
 
   body {
