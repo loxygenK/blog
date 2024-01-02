@@ -8,6 +8,9 @@ dependencies:
   '@fec/remark-a11y-emoji':
     specifier: ^4.0.2
     version: 4.0.2
+  '@jsdevtools/rehype-toc':
+    specifier: ^3.0.2
+    version: 3.0.2
   '@mdx-js/mdx':
     specifier: ^3.0.0
     version: 3.0.0
@@ -26,9 +29,18 @@ dependencies:
   classnames:
     specifier: ^2.5.0
     version: 2.5.0
+  github-slugger:
+    specifier: ^2.0.0
+    version: 2.0.0
   highlight.js:
     specifier: ^11.9.0
     version: 11.9.0
+  mdast-util-from-markdown:
+    specifier: ^2.0.0
+    version: 2.0.0
+  mdast-util-to-string:
+    specifier: ^4.0.0
+    version: 4.0.0
   next:
     specifier: 14.0.4
     version: 14.0.4(@babel/core@7.23.6)(react-dom@18.2.0)(react@18.2.0)(sass@1.69.5)
@@ -53,6 +65,9 @@ dependencies:
   rehype-mathjax:
     specifier: ^6.0.0
     version: 6.0.0
+  rehype-slug:
+    specifier: ^6.0.0
+    version: 6.0.0
   remark-gemoji:
     specifier: ^8.0.0
     version: 8.0.0
@@ -71,6 +86,9 @@ dependencies:
   twemoji:
     specifier: ^14.0.2
     version: 14.0.2
+  unist-util-visit:
+    specifier: ^5.0.0
+    version: 5.0.0
   zod:
     specifier: ^3.22.4
     version: 3.22.4
@@ -831,6 +849,11 @@ packages:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.1
       '@jridgewell/sourcemap-codec': 1.4.15
+    dev: false
+
+  /@jsdevtools/rehype-toc@3.0.2:
+    resolution: {integrity: sha512-n5JEf16Wr4mdkRMZ8wMP/wN9/sHmTjRPbouXjJH371mZ2LEGDl72t8tEsMRNFerQN/QJtivOxqK1frdGa4QK5Q==}
+    engines: {node: '>=10'}
     dev: false
 
   /@mdx-js/mdx@2.3.0:
@@ -2130,6 +2153,10 @@ packages:
       get-intrinsic: 1.2.2
     dev: true
 
+  /github-slugger@2.0.0:
+    resolution: {integrity: sha512-IaOQ9puYtjrkq7Y0Ygl9KDZnrf/aiUJYUpVf89y8kyaxbRG7Y1SrX/jaumrv81vc61+kiMempujsM3Yw7w5qcw==}
+    dev: false
+
   /glob-parent@5.1.2:
     resolution: {integrity: sha512-AOIgSQCepiJYwP3ARnGx+5VnTu2HBYdzbGP45eLw1vr3zB3vZLeyed1sC9hnbcOc9/SrMyM5RPQrkGz4aS9Zow==}
     engines: {node: '>= 6'}
@@ -2245,6 +2272,12 @@ packages:
       web-namespaces: 2.0.1
     dev: false
 
+  /hast-util-heading-rank@3.0.0:
+    resolution: {integrity: sha512-EJKb8oMUXVHcWZTDepnr+WNbfnXKFNf9duMesmr4S8SXTJBJ9M4Yok08pu9vxdJwdlGRhVumk9mEhkEvKGifwA==}
+    dependencies:
+      '@types/hast': 3.0.3
+    dev: false
+
   /hast-util-is-element@3.0.0:
     resolution: {integrity: sha512-Val9mnv2IWpLbNPqc/pUem+a7Ipj2aHacCwgNfTiK0vJKl0LF+4Ba4+v1oPHFpf3bLYmreq0/l3Gud9S5OH42g==}
     dependencies:
@@ -2322,6 +2355,12 @@ packages:
       vfile-message: 4.0.2
     transitivePeerDependencies:
       - supports-color
+    dev: false
+
+  /hast-util-to-string@3.0.0:
+    resolution: {integrity: sha512-OGkAxX1Ua3cbcW6EJ5pT/tslVb90uViVkcJ4ZZIMW/R33DX/AkcJcRrPebPwJkHYwlDHXz4aIwvAAaAdtrACFA==}
+    dependencies:
+      '@types/hast': 3.0.3
     dev: false
 
   /hast-util-to-text@4.0.0:
@@ -4171,6 +4210,16 @@ packages:
       - canvas
       - supports-color
       - utf-8-validate
+    dev: false
+
+  /rehype-slug@6.0.0:
+    resolution: {integrity: sha512-lWyvf/jwu+oS5+hL5eClVd3hNdmwM1kAC0BUvEGD19pajQMIzcNUd/k9GsfQ+FfECvX+JE+e9/btsKH0EjJT6A==}
+    dependencies:
+      '@types/hast': 3.0.3
+      github-slugger: 2.0.0
+      hast-util-heading-rank: 3.0.0
+      hast-util-to-string: 3.0.0
+      unist-util-visit: 5.0.0
     dev: false
 
   /remark-gemoji@8.0.0:

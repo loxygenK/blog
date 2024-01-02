@@ -14,10 +14,10 @@
     --f4n-theme-light-pink: #FF47B5;
     --f4n-theme-purple: #9747FF;
 
-    --f4n-font-size-tiny: 14px;
-    --f4n-font-size-small: 16px;
-    --f4n-font-size-normal: 18px;
-    --f4n-font-size-large: 20px;
+    --f4n-font-size-tiny: 13px;
+    --f4n-font-size-small: 14px;
+    --f4n-font-size-normal: 16px;
+    --f4n-font-size-large: 18px;
     --f4n-font-size-large: 20px;
     --f4n-font-size-huge: 36px;
     --f4n-font-size-very-huge: 48px;
@@ -43,7 +43,7 @@
     --f4n-line-height-bloody-loose: 170%;
 
     --f4n-char-spacing-packed: -0.075em;
-    --f4n-char-spacing-loose: 0.5px;
+    --f4n-char-spacing-loose: 1px;
 
     --f4n-font-family-mono: "JetBrains Mono", monospace;
 
