@@ -3,17 +3,25 @@ import { typeColorHex } from "~/style/type-color";
 import { Post } from "../../type";
 
 import { ImageResponseOptions } from "next/server";
-import { baseUrl } from "~/config";
 import { fonts } from "~/style/font";
 
+import path from "path";
+import fs, { FileHandle } from "fs/promises";
+
 type Props = {
+  background: string;
   post: Pick<Post, "frontmatter">;
 };
 
-export const OGImage: FC<Props> = ({ post }) => {
+export const OGImage: FC<Props> = ({ background, post }) => {
   return (
     <figure
-      style={{ ...styles.root, color: typeColorHex[post.frontmatter.type] }}
+      style={{
+        ...styles.root,
+        color: typeColorHex[post.frontmatter.type],
+        background: `url(${background})`,
+        backgroundSize: "1200px 630px",
+      }}
       aria-hidden
     >
       <p style={styles.title}>{post.frontmatter.title}</p>
@@ -21,6 +29,15 @@ export const OGImage: FC<Props> = ({ post }) => {
     </figure>
   );
 };
+
+export async function generateBackgroundImageUrl(): Promise<string> {
+  const file = await fs.readFile(
+    path.join(process.cwd(), "build-asset", "ogbg.png"),
+  );
+  const bgData = `data:image/png;base64,${file.toString("base64")}`;
+
+  return bgData;
+}
 
 type FontConfig = Exclude<ImageResponseOptions["fonts"], undefined>[number];
 
@@ -37,9 +54,12 @@ async function fontConfig<const F extends keyof typeof fonts>(
   font: F,
   weight: keyof (typeof fonts)[F],
 ): Promise<FontConfig> {
-  const url = new URL(`${baseUrl}${fonts[font][weight]}`);
-
-  const fontData = await fetch(url).then((res) => res.arrayBuffer());
+  const url = path.join(
+    process.cwd(),
+    "build-asset",
+    fonts[font][weight] as string,
+  );
+  const fontData = await fs.readFile(url);
 
   type DefinedWeight = keyof (typeof fonts)[keyof typeof fonts];
   return {
@@ -52,7 +72,6 @@ async function fontConfig<const F extends keyof typeof fonts>(
 // Apparently CSS cannot be used in OG image generation.
 const styles = {
   root: {
-    backgroundImage: `url('${baseUrl}/ogbg.png')`,
     width: "1200px",
     height: "630px",
     padding: "100px 100px",

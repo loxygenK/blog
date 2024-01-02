@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { baseUrl } from "~/config";
 import { getPosts, retrievePost } from "~/feat/article/usecase/articles";
 import { PostDetailPage } from "~/feat/article/views/detail/page";
 
@@ -7,6 +8,12 @@ type Props = {
     slug: string;
   };
 };
+
+// retrievePost might be discovered as external data and marks OG gen as SSR-needed.
+// However the article data doesn't change after building so setting this.
+// I think I messed up with the architecture around here, I have to think about this.
+// export const dynamic = "---";
+// export const revalidate = "---";
 
 export default async function Post({ params: { slug } }: Props) {
   const post = await retrievePost(slug);
@@ -25,9 +32,11 @@ export async function generateMetadata({
     openGraph: {
       title: `${post.frontmatter.title} | Flisan's Blog`,
       description: post.frontmatter.subTitle,
+      images: `/${slug}/og.png`,
       releaseDate: post.frontmatter.date.toISOString(),
       modifiedTime: post.frontmatter.date.toISOString(),
     },
+    metadataBase: new URL(baseUrl),
   };
 }
 
