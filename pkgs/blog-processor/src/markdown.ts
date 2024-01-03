@@ -24,7 +24,9 @@ export async function parseMDX(
 ): Promise<Parsed> {
   // Must be executed in the server
 
-  const articleContent = content.split("---", 3)[2];
+  const [_empty, _frontmatter, ...articleContents] = content.split("---");
+  const articleContent = articleContents.join("-----");
+
   if (articleContent === undefined) {
     throw new Error("This article might not contain the headline.");
   }

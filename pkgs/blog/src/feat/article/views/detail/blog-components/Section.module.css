@@ -4,7 +4,7 @@
 
     border: 2px solid var(--type-color);
     padding-bottom: var(--f4n-spacing-large);
-    margin-bottom: var(--f4n-spacing-large);
+    margin-bottom: var(--f4n-spacing-very-large);
     overflow: hidden;
   }
 

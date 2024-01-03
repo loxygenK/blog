@@ -11,6 +11,7 @@ export const f4nThemeColor = {
   primary: "#ED2A87",
   textPrimary: "#ca0b67",
   themeGreen: "#2AED8F",
+  themeDarkGreen: "#3A996B",
   themeSky: "#2AA7ED",
   themeBlue: "#2A60ED",
   themeLightPink: "#FF47B5",
