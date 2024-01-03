@@ -9,9 +9,17 @@ export default function robots(): MetadataRoute.Robots {
       },
       {
         // Ref. https://netfuture.ch/2023/07/blocking-ai-crawlers-robots-txt-chatgpt/
-        userAgent: ["GPTBot", "ChatGPT-User", "Google-Extended", "FacebookBot", "OmgiliBot", "anthropic-ai", "cohere-ai"],
+        userAgent: [
+          "GPTBot",
+          "ChatGPT-User",
+          "Google-Extended",
+          "FacebookBot",
+          "OmgiliBot",
+          "anthropic-ai",
+          "cohere-ai",
+        ],
         disallow: "/",
       },
-    ]
+    ],
   };
 }
