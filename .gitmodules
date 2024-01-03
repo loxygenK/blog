@@ -1,0 +1,4 @@
+[submodule "pkgs/blog/blog-articles"]
+	path = pkgs/blog/blog-articles
+	url = https://github.com/loxygenK/blog-articles
+	branch = main
