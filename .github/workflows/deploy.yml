@@ -1,0 +1,25 @@
+on:
+  workflow_dispatch:
+
+name: Deploy the blog with the latest articles data
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: production
+
+      - run: git checkout production
+
+      - run: git submodule update --remote
+
+      - run: |
+          git config user.name "GitHub Action"
+          git config user.email "github-blog-ga@f4n.dev"
+          git add .
+          git commit -m "🍱 Update the branch to the latest"
+
+      - run: git push origin production
