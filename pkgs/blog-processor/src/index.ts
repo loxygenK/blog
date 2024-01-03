@@ -1,14 +1,14 @@
 import fs from "fs";
 import path from "path";
+import { FC } from "react";
+import { walk } from "./fs";
+import { parseMDX } from "./markdown";
 import {
   ProcessedBlog,
   PropertiesDefinition,
   propertiesDefinition,
 } from "./types";
-import { walk } from "./fs";
-import { parseMDX } from "./markdown";
 import { validateParsedMarkdown } from "./validator";
-import { FC } from "react";
 
 import { Mutex } from "async-mutex";
 
@@ -25,7 +25,7 @@ export async function processBlogArticles(
   articlePath: string,
   defs: PropertiesDefinition,
   // biome-ignore lint/suspicious/noExplicitAny: Props type check in compilation time is impossible
-components: Record<string, FC<any>>
+  components: Record<string, FC<any>>,
 ): Promise<BlogArticleRegistry> {
   const key = Math.floor(Math.random() * 100000);
 

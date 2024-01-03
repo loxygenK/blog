@@ -4,6 +4,34 @@
   padding: var(--f4n-spacing-huge) 15vw;
 }
 
+.root hr {
+  position: relative;
+  border-top: 1px solid var(--type-color);
+  margin: var(--f4n-spacing-small) 10%;
+  width: 80%;
+}
+
+.root hr::after {
+  content: "<hr>";
+  padding: 0 var(--f4n-spacing-large);
+  background-color: white;
+  color: var(--type-color);
+  font-size: var(--f4n-font-size-normal);
+  font-family: var(--f4n-font-family-mono);
+
+  position: absolute;
+  top: 0%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+@media only screen and (max-width: 768px) {
+  .root {
+    padding-left: 0vw;
+    padding-right: 0vw;
+  }
+}
+
 .article {
   display: grid;
   grid-template-columns: 67% 33%;
@@ -11,11 +39,12 @@
   grid-template-areas:
     "header header"
     "toc sidebar"
+    "hr sidebar"
     "content sidebar"
     "footer footer";
 
   width: calc(100% - var(--f4n-spacing-dyn-huge));
-  gap: var(--f4n-spacing-huge) var(--f4n-spacing-dyn-huge);
+  gap: var(--f4n-spacing-very-large) var(--f4n-spacing-dyn-huge);
 }
 
 @media only screen and (max-width: 768px) {
@@ -33,6 +62,10 @@
 
 .content {
   grid-area: content;
+}
+
+.hr {
+  grid-area: hr;
 }
 
 .toc {
