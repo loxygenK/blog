@@ -25,6 +25,6 @@ export const typeColorHex: Record<PostType, string> = {
   til: f4nThemeColor.themeBlue,
   mylife: f4nThemeColor.themeLightPink,
   mycareer: f4nThemeColor.themePurple,
-  release: f4nThemeColor.themeGreen,
+  release: f4nThemeColor.themeDarkGreen,
   other: f4nThemeColor.themeGray,
 };
