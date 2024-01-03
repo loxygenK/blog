@@ -1,28 +1,31 @@
-import remarkGfm from "remark-gfm";
-import remarkGemoji from "remark-gemoji";
-import remarkMath from "remark-math";
+import GitHubSlugger from "github-slugger";
+import { fromMarkdown } from "mdast-util-from-markdown";
+import { toString as treeToString } from "mdast-util-to-string";
+import { compileMDX } from "next-mdx-remote/rsc";
+import { FC, ReactElement, ReactNode } from "react";
 import rehypeHighlight from "rehype-highlight";
 import rehypeKaTeX from "rehype-katex";
 import rehypeSlug from "rehype-slug";
-import { compileMDX } from "next-mdx-remote/rsc";
-import { FC, ReactNode } from "react";
-import { fromMarkdown } from "mdast-util-from-markdown";
+import remarkGemoji from "remark-gemoji";
+import remarkGfm from "remark-gfm";
+import remarkMath from "remark-math";
 import { visit } from "unist-util-visit";
-import { toString as treeToString } from "mdast-util-to-string";
 import { Heading } from "./types";
-import GitHubSlugger from "github-slugger";
 
 export type Parsed = {
-  element: ReactNode,
-  frontmatter: Record<string, unknown>,
-  headings: Array<Heading>,
-}
+  element: ReactElement;
+  frontmatter: Record<string, unknown>;
+  headings: Array<Heading>;
+};
 
-export async function parseMDX(content: string, components: Record<string, FC<any>>): Promise<Parsed> {
+export async function parseMDX(
+  content: string,
+  components: Record<string, FC<unknown>>,
+): Promise<Parsed> {
   // Must be executed in the server
 
   const articleContent = content.split("---", 3)[2];
-  if(articleContent === undefined) {
+  if (articleContent === undefined) {
     throw new Error("This article might not contain the headline.");
   }
 
@@ -45,7 +48,7 @@ export async function parseMDX(content: string, components: Record<string, FC<an
     element: serialized.content,
     frontmatter: serialized.frontmatter,
     headings,
-  }
+  };
 }
 
 function generateHeadingTree(content: string): Array<Heading> {
@@ -66,7 +69,7 @@ function generateHeadingTree(content: string): Array<Heading> {
     };
 
     // This is the first time we see the heading
-    if(lastHeadingObject === undefined) {
+    if (lastHeadingObject === undefined) {
       headings.push(headingObject);
       lastHeadingObject = headingObject;
       return;
@@ -74,7 +77,7 @@ function generateHeadingTree(content: string): Array<Heading> {
 
     // The last heading was bigger than the current heading,
     // so adding the current heading to the children list of the last heading
-    if(lastHeadingObject.depth < heading.depth) {
+    if (lastHeadingObject.depth < heading.depth) {
       headingObject.parent = lastHeadingObject;
       lastHeadingObject.children.push(headingObject);
 
@@ -85,12 +88,12 @@ function generateHeadingTree(content: string): Array<Heading> {
     // The current heading was bigger in this place, so we are finding new parent
     let counter = 0;
     let newParent: Heading | undefined = lastHeadingObject.parent;
-    while(newParent !== undefined) {
-      if(counter++ > 1000) {
+    while (newParent !== undefined) {
+      if (counter++ > 1000) {
         throw new Error("Infinite loop!");
       }
 
-      if(newParent.depth < headingObject.depth) {
+      if (newParent.depth < headingObject.depth) {
         break;
       }
 

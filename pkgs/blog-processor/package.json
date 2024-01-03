@@ -5,32 +5,49 @@
   "description": "",
   "type": "module",
   "main": "src/index.ts",
+  "packageManager": "pnpm@8.14.0",
   "exports": {
     ".": "./src/index.ts",
     "./types": "./src/types.ts"
   },
   "scripts": {
-    "bin:run": "tsx ./bin/main.ts"
+    "ci": "biome ci ./src",
+    "check": "run-s check:*",
+    "check:lint": "biome check ./src --formatter-enabled=false",
+    "check:style": "biome format ./src --diagnostic-level=warn",
+    "fix": "run-s fix:*",
+    "fix:lint": "pnpm check:lint --apply",
+    "fix:style": "pnpm check:style --write"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@biomejs/biome": "^1.4.1",
     "@types/node": "^20.10.2",
+    "npm-run-all": "^4.1.5",
     "tsx": "^4.6.2"
   },
   "dependencies": {
     "async-mutex": "^0.4.0",
+    "github-slugger": "^2.0.0",
+    "mdast-util-from-markdown": "^2.0.0",
+    "mdast-util-to-string": "^4.0.0",
     "next-mdx-remote": "^4.4.1",
     "rehype-highlight": "^7.0.0",
     "rehype-katex": "^7.0.0",
     "rehype-mathjax": "^5.0.0",
+    "rehype-slug": "^6.0.0",
     "remark-gemoji": "^8.0.0",
     "remark-gfm": "^3.0.1",
     "remark-math": "^6.0.0",
-    "unified": "^11.0.4"
+    "typescript": "^5.3.3",
+    "unified": "^11.0.4",
+    "unist-util-visit": "^5.0.0"
   },
   "peerDependencies": {
+    "@types/react": "^18.2.0",
+    "react": "^18.2.0",
     "zod": "^3.22.4"
   }
 }
