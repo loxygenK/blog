@@ -26,11 +26,23 @@
   gap: var(--f4n-spacing-very-large);
 }
 
+@media only screen and (max-width: 768px) {
+  .titleSection {
+    gap: var(--f4n-spacing-large);
+  }
+}
+
 .title {
   display: flex;
   flex-direction: column;
   gap: var(--f4n-spacing-small);
   padding: 0 var(--f4n-spacing-very-large);
+}
+
+@media only screen and (max-width: 768px) {
+  .title {
+    padding: 0 var(--f4n-spacing-large);
+  }
 }
 
 .mainTitle {
@@ -45,7 +57,7 @@
 
 @media only screen and (max-width: 768px) {
   .mainTitle {
-    font-size: var(--f4n-font-size-huge);
+    font-size: var(--f4n-font-size-very-large);
     line-height: var(--f4n-line-height-loose);
   }
 }

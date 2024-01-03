@@ -29,6 +29,7 @@ export const PostDetailPage: FC<Props> = ({ post }) => {
       >
         <PostMetadataHeader className={styles.header} post={post} />
         <PostMetadataSidebar className={styles.sidebar} post={post} />
+        <hr className={styles.hr} />
         <PostToc
           className={styles.toc}
           headings={post.headings}

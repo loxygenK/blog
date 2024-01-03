@@ -17,7 +17,8 @@
 
   .hr {
     border-top: 1px solid var(--type-color);
-    margin: var(--f4n-spacing-very-large) 0;
+    margin-top: var(--f4n-spacing-very-large);
+    margin-bottom: var(--f4n-spacing-very-large);
   }
 
   .tocNav > .tocList {

@@ -21,7 +21,7 @@ export type Parsed = {
 export async function parseMDX(content: string, components: Record<string, FC<any>>): Promise<Parsed> {
   // Must be executed in the server
 
-  const articleContent = content.split("---")[2];
+  const articleContent = content.split("---", 3)[2];
   if(articleContent === undefined) {
     throw new Error("This article might not contain the headline.");
   }
