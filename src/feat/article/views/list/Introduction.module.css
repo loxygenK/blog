@@ -23,30 +23,10 @@
   font-size: var(--f4n-font-size-dyn-large);
 }
 
-.pinnedPostSection {
-  position: relative;;
-  border: 2px solid var(--f4n-primary);
-  padding: var(--f4n-spacing-normal) var(--f4n-spacing-large);
-}
-
-.pinnedPostHeading {
-  position: absolute;
-  background-color: white;
-  line-height: var(--f4n-line-height-normal);
-
-  top: -0.5em;;
-  left: var(--f4n-spacing-small);
-  padding: 0 var(--f4n-spacing-small);
-
-  color: var(--f4n-primary);
-  font-weight: bold;
-}
-
 .imageWrapper {
   position: relative;
   width: 100%;
   aspect-ratio: 319 / 63;
 }
-
 
 }

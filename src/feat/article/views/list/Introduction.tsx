@@ -23,10 +23,6 @@ export const Introduction: FC = () => {
           私が学んだことや感じたこと、思ったことで、インターネットの人々に見せたいものが入っています。
         </p>
       </hgroup>
-      <ul className={styles.pinnedPostSection}>
-        <h2 className={styles.pinnedPostHeading}>Pinned Blog Article</h2>
-        <li>Stab</li>
-      </ul>
     </section>
   );
 };
