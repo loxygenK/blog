@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 import { BodyLayout } from "~/feat/ui/BodyLayout";
 import { Header } from "~/feat/ui/Header";
 

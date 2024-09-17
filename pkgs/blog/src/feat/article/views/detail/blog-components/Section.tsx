@@ -1,15 +1,15 @@
 import { propertiesDefinition } from "blog-processor/types";
-import { z } from "zod";
+import { type ZodTypeAny, z } from "zod";
 import { reactNode, runtimeChecked } from "./types";
 import { withDefinition } from "./withDef";
 
-import { CSSProperties, useId } from "react";
+import { type CSSProperties, useId } from "react";
 import styles from "./Section.module.css";
 
 const props = z.object({
   children: reactNode,
   type: z.string(),
-  propsDef: propertiesDefinition,
+  propsDef: propertiesDefinition as ZodTypeAny,
 });
 
 export const Section = withDefinition(
@@ -29,11 +29,7 @@ export const Section = withDefinition(
 
     return (
       <section className={styles.root} aria-labelledby={`section-caveat_${id}`}>
-        <h4
-          className={styles.sectionTitle}
-          id={`section-caveat_${id}`}
-          role="none"
-        >
+        <h4 className={styles.sectionTitle} id={`section-caveat_${id}`}>
           {caveat.inline.description}
         </h4>
         <figure

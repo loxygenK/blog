@@ -1,74 +1,72 @@
 @layer component {
-
-.root {
-  position: relative;
-  border-left: 4px solid var(--type-color);
-  padding: var(--f4n-spacing-very-large) 0;
-}
-
-@media only screen and (max-width: 768px) {
   .root {
-    border-left-width: 0;
-    padding: 0;
+    position: relative;
+    border-left: 4px solid var(--type-color);
+    padding: var(--f4n-spacing-very-large) 0;
   }
-}
 
-.bg {
-  position: absolute;
-  z-index: -1;
-  top: 0;
-  left: 1em;
-}
+  @media only screen and (max-width: 768px) {
+    .root {
+      border-left-width: 0;
+      padding: 0;
+    }
+  }
 
-.titleSection {
-  display: flex;
-  flex-direction: column;
-  gap: var(--f4n-spacing-very-large);
-}
+  .bg {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 1em;
+  }
 
-@media only screen and (max-width: 768px) {
   .titleSection {
-    gap: var(--f4n-spacing-large);
+    display: flex;
+    flex-direction: column;
+    gap: var(--f4n-spacing-very-large);
   }
-}
 
-.title {
-  display: flex;
-  flex-direction: column;
-  gap: var(--f4n-spacing-small);
-  padding: 0 var(--f4n-spacing-very-large);
-}
+  @media only screen and (max-width: 768px) {
+    .titleSection {
+      gap: var(--f4n-spacing-large);
+    }
+  }
 
-@media only screen and (max-width: 768px) {
   .title {
-    padding: 0 var(--f4n-spacing-large);
+    display: flex;
+    flex-direction: column;
+    gap: var(--f4n-spacing-small);
+    padding: 0 var(--f4n-spacing-very-large);
   }
-}
 
-.mainTitle {
-  order: 2;
+  @media only screen and (max-width: 768px) {
+    .title {
+      padding: 0 var(--f4n-spacing-large);
+    }
+  }
 
-  color: var(--type-color);
-  font-size: var(--f4n-font-size-very-huge);
-  letter-spacing: var(--f4n-char-spacing-packed);
-  line-height: var(--f4n-line-height-bit-loose);
-  font-weight: 700;
-}
-
-@media only screen and (max-width: 768px) {
   .mainTitle {
-    font-size: var(--f4n-font-size-very-large);
-    line-height: var(--f4n-line-height-loose);
+    order: 2;
+
+    color: var(--type-color);
+    font-size: var(--f4n-font-size-very-huge);
+    letter-spacing: var(--f4n-char-spacing-packed);
+    line-height: var(--f4n-line-height-bit-loose);
+    font-weight: 700;
   }
-}
 
-.subTitle {
-  order: 1;
+  @media only screen and (max-width: 768px) {
+    .mainTitle {
+      font-size: var(--f4n-font-size-very-large);
+      line-height: var(--f4n-line-height-loose);
+    }
+  }
 
-  color: var(--type-color);
-  font-size: var(--f4n-font-size-normal);
-  letter-spacing: var(--f4n-char-spacing-packed);
-  font-weight: 300;
-}
+  .subTitle {
+    order: 1;
 
+    color: var(--type-color);
+    font-size: var(--f4n-font-size-normal);
+    letter-spacing: var(--f4n-char-spacing-packed);
+    font-weight: 300;
+  }
 }

@@ -1,6 +1,6 @@
-import { Heading } from "blog-processor/types";
+import type { Heading } from "blog-processor/types";
 import classNames from "classnames";
-import { FC } from "react";
+import type { FC } from "react";
 
 import Link from "next/link";
 import styles from "./PostToc.module.css";
@@ -43,6 +43,7 @@ const PostTocList: FC<Omit<Props, "navClassName">> = ({
               heading.depth === 1 && styles.topLevel,
               styles.elementWrapper,
             )}
+            key={heading.linkId}
           >
             <Link
               href={`#${heading.linkId}`}

@@ -1,5 +1,5 @@
-import { FC, ReactNode } from "react";
-import { ZodSchema, z } from "zod";
+import type { FC, ReactNode } from "react";
+import { type ZodSchema, z } from "zod";
 
 export const reactNode = z.custom<ReactNode>();
 

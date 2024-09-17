@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "packageManager": "pnpm@8.14.0",
+  "packageManager": "pnpm@8.15.9",
   "scripts": {
     "dev": "next dev",
     "ci": "biome ci ./src",
@@ -20,7 +20,7 @@
     "@mdx-js/mdx": "^3.0.0",
     "@vanilla-extract/css": "^1.14.0",
     "@vanilla-extract/next-plugin": "^2.3.2",
-    "async-mutex": "^0.4.0",
+    "async-mutex": "^0.5.0",
     "blog-processor": "*",
     "classnames": "^2.5.0",
     "highlight.js": "^11.9.0",

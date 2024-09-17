@@ -1,5 +1,5 @@
+import path from "node:path";
 import { createVanillaExtractPlugin } from "@vanilla-extract/next-plugin";
-import path from "path";
 
 const withVanillaExtractPlugin = createVanillaExtractPlugin();
 
@@ -35,14 +35,14 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "twemoji.maxcdn.com",
-        pathname: "/v/latest/72x72/*"
-      }
-    ]
+        pathname: "/v/latest/72x72/*",
+      },
+    ],
   },
   experimental: {
     workerThreads: false,
     cpus: 1,
-  }
+  },
 };
 
 export default withVanillaExtractPlugin(nextConfig);

@@ -1,11 +1,11 @@
-import fs from "fs";
-import path from "path";
-import { FC } from "react";
+import fs from "node:fs";
+import path from "node:path";
+import type { FC } from "react";
 import { walk } from "./fs";
 import { parseMDX } from "./markdown";
 import {
-  ProcessedBlog,
-  PropertiesDefinition,
+  type ProcessedBlog,
+  type PropertiesDefinition,
   propertiesDefinition,
 } from "./types";
 import { validateParsedMarkdown } from "./validator";
@@ -30,7 +30,6 @@ export async function processBlogArticles(
   const key = Math.floor(Math.random() * 100000);
 
   function log(mark: string, payload: string) {
-    // biome-ignore lint/suspicious/noConsoleLog: This is for the compilation log
     console.log(`${mark.padEnd(4, " ")} [${key}] ${payload}`);
   }
 

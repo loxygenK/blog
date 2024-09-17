@@ -1,6 +1,6 @@
 import classNames from "classnames";
-import { FC } from "react";
-import { Post } from "../../type";
+import type { FC } from "react";
+import type { Post } from "../../type";
 import { PostTypeTag } from "../PostTypeTag";
 
 import { typeColor } from "~/style/type-color";

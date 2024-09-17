@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 import { string, z } from "zod";
 
 export const caveat = z.string().min(1).brand("caveat");

@@ -1,4 +1,4 @@
-import { PostType } from "~/feat/article/type";
+import type { PostType } from "~/feat/article/type";
 
 import styles from "./type-color.module.css";
 

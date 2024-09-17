@@ -1,8 +1,8 @@
-import { ImageResponseOptions } from "next/server";
+import type { ImageResponseOptions } from "next/server";
 import { fonts } from "~/style/font";
 
-import path from "path";
-import fs from "fs/promises";
+import fs from "node:fs/promises";
+import path from "node:path";
 
 type FontConfig = Exclude<ImageResponseOptions["fonts"], undefined>[number];
 

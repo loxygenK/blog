@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { FC, Fragment } from "react";
+import { type FC, Fragment } from "react";
 import styles from "./Header.module.css";
 
 type Props = {

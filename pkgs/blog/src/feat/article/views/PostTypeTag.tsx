@@ -1,9 +1,9 @@
 import classNames from "classnames";
 import Image from "next/image";
-import { FC } from "react";
+import type { FC } from "react";
 import twemoji from "twemoji";
 import { typeColor } from "~/style/type-color";
-import { PostType } from "../type";
+import type { PostType } from "../type";
 import styles from "./PostTypeTag.module.css";
 
 type Props = {
