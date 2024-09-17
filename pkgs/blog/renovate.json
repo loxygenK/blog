@@ -1,7 +1,5 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "local>loxygenK/renovate-config"
-  ],
+  "extends": ["local>loxygenK/renovate-config"],
   "prHourlyLimit": 20
 }

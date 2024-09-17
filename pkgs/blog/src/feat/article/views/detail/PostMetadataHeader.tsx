@@ -1,5 +1,5 @@
-import { FC } from "react";
-import { Post } from "../../type";
+import type { FC } from "react";
+import type { Post } from "../../type";
 
 import classNames from "classnames";
 import Image from "next/image";

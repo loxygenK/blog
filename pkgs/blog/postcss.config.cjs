@@ -1,5 +1,3 @@
 module.exports = {
-  plugins: [
-    "postcss-import"
-  ]
-}
+  plugins: ["postcss-import"],
+};

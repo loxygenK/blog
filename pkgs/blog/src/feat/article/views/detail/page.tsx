@@ -1,7 +1,7 @@
-import { FC } from "react";
+import type { FC } from "react";
 import { BodyLayout } from "~/feat/ui/BodyLayout";
 import { Header } from "~/feat/ui/Header";
-import { Post } from "../../type";
+import type { Post } from "../../type";
 import { MDXContent } from "./MDXContent";
 import { PostMetadataHeader } from "./PostMetadataHeader";
 

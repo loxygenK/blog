@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import { baseUrl } from "~/config";
 import { getPosts, retrievePost } from "~/feat/article/usecase/articles";
 import { PostDetailPage } from "~/feat/article/views/detail/page";

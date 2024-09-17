@@ -1,10 +1,10 @@
 import Link from "next/link";
-import { FC } from "react";
+import type { FC } from "react";
 import { postDetailPagePath } from "~/app/(article)/[slug]/path";
 
 import classNames from "classnames";
 import { typeColor } from "~/style/type-color";
-import { Post } from "../../type";
+import type { Post } from "../../type";
 import { PostTagRow } from "../PostTagRow";
 import { PostTypeTag } from "../PostTypeTag";
 import styles from "./ListedPost.module.css";

@@ -10,7 +10,7 @@
     padding: 6px 8px;
 
     color: var(--f4n-text-primary);
-    font-family: Inter;
+    font-family: Inter, sans-serif;
     font-size: var(--f4n-font-size-small);
     line-height: var(--f4n-line-height-packed);
     font-weight: 300;
@@ -31,7 +31,8 @@
     width: max-content;
   }
 
-  .eachLink:focus, .eachLink:hover {
+  .eachLink:focus,
+  .eachLink:hover {
     text-decoration: underline;
     border-left-width: 6px;
     padding-left: 6px;

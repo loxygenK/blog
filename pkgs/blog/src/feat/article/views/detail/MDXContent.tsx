@@ -1,5 +1,5 @@
-import { FC } from "react";
-import { Post } from "~/feat/article/type";
+import type { FC } from "react";
+import type { Post } from "~/feat/article/type";
 
 import classNames from "classnames";
 import { typeColor } from "~/style/type-color";

@@ -1,5 +1,5 @@
-import { FC, ReactNode } from "react";
-import { Post } from "../type";
+import type { FC, ReactNode } from "react";
+import type { Post } from "../type";
 
 import classNames from "classnames";
 import { typeColor } from "~/style/type-color";

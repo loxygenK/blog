@@ -1,6 +1,6 @@
-import { CSSProperties, FC } from "react";
+import type { CSSProperties, FC } from "react";
 import { typeColorHex } from "~/style/type-color";
-import { Post } from "../../type";
+import type { Post } from "../../type";
 
 type Props = {
   background: string;

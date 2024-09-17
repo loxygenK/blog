@@ -1,5 +1,9 @@
-import { Parsed } from "./markdown";
-import { ProcessedBlog, PropertiesDefinition, frontMatter } from "./types";
+import type { Parsed } from "./markdown";
+import {
+  type ProcessedBlog,
+  type PropertiesDefinition,
+  frontMatter,
+} from "./types";
 
 export type ValidationResult =
   | SuccessfulValidationResult

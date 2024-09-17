@@ -1,7 +1,7 @@
-export {}
+export {};
 
 // import type {Config} from 'jest';
-// 
+//
 // const config: Config = {
 //   // preset: 'ts-jest/presets/default-esm',
 //   preset: 'ts-jest',
@@ -12,5 +12,5 @@ export {}
 //   },
 //   verbose: true,
 // };
-// 
+//
 // export default config;

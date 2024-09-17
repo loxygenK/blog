@@ -175,13 +175,13 @@
     padding-left: var(--f4n-spacing-large);
   }
 
-  .post section[data-footnotes=true] h2 {
+  .post section[data-footnotes="true"] h2 {
     font-size: var(--f4n-font-size-large);
     border-bottom: 1px dotted var(--type-color);
     padding-bottom: var(--f4n-spacing-small);
   }
 
-  .post section[data-footnotes=true] p {
+  .post section[data-footnotes="true"] p {
     margin-bottom: 0.5em;
     font-size: 0.9em;
   }

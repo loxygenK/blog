@@ -1,5 +1,5 @@
-import { FC } from "react";
-import { Post } from "~/feat/article/type";
+import type { FC } from "react";
+import type { Post } from "~/feat/article/type";
 import { ListedPost } from "./ListedPost";
 
 import { BodyLayout } from "~/feat/ui/BodyLayout";

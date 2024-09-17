@@ -1,5 +1,5 @@
-import { PropertiesDefinition } from "blog-processor/types";
-import { FC, ReactNode } from "react";
+import type { PropertiesDefinition } from "blog-processor/types";
+import type { FC, ReactNode } from "react";
 import { ZodSchema, z } from "zod";
 
 export const requireFill = Symbol();

@@ -1,11 +1,9 @@
 @layer component {
-
-.tags {
-  display: flex;
-  gap: var(--f4n-spacing-normal);
-  padding-left: var(--f4n-spacing-large);
-  padding-right: var(--f4n-spacing-large);
-  border-top: 3px solid var(--type-color);
-}
-
+  .tags {
+    display: flex;
+    gap: var(--f4n-spacing-normal);
+    padding-left: var(--f4n-spacing-large);
+    padding-right: var(--f4n-spacing-large);
+    border-top: 3px solid var(--type-color);
+  }
 }

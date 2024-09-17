@@ -1,27 +1,25 @@
 @layer base {
-
-.body > * {
-  margin-bottom: var(--f4n-spacing-dyn-huge);
-}
-
-.main {
-  margin: 0 auto;
-  width: 100%;
-  padding-left: 7vw;
-  padding-right: 7vw;
-
-  min-width: 200px;
-}
-
-@media only screen and (max-width: 768px) {
   .body > * {
-    margin-bottom: var(--f4n-spacing-large);
+    margin-bottom: var(--f4n-spacing-dyn-huge);
   }
 
-  .main.noHorizontalPadding {
-    padding-left: 0;
-    padding-right: 0;
-  }
-}
+  .main {
+    margin: 0 auto;
+    width: 100%;
+    padding-left: 7vw;
+    padding-right: 7vw;
 
+    min-width: 200px;
+  }
+
+  @media only screen and (max-width: 768px) {
+    .body > * {
+      margin-bottom: var(--f4n-spacing-large);
+    }
+
+    .main.noHorizontalPadding {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
 }

@@ -2,7 +2,7 @@ import GitHubSlugger from "github-slugger";
 import { fromMarkdown } from "mdast-util-from-markdown";
 import { toString as treeToString } from "mdast-util-to-string";
 import { compileMDX } from "next-mdx-remote/rsc";
-import { FC, ReactElement } from "react";
+import type { FC, ReactElement } from "react";
 import rehypeHighlight from "rehype-highlight";
 import rehypeKaTeX from "rehype-katex";
 import rehypeSlug from "rehype-slug";
@@ -10,7 +10,7 @@ import remarkGemoji from "remark-gemoji";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 import { visit } from "unist-util-visit";
-import { Heading } from "./types";
+import type { Heading } from "./types";
 
 export type Parsed = {
   element: ReactElement;

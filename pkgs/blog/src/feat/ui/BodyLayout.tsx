@@ -1,4 +1,4 @@
-import { FC, ReactNode } from "react";
+import type { FC, ReactNode } from "react";
 import styles from "./BodyLayout.module.css";
 
 import classNames from "classnames";
