@@ -42,7 +42,7 @@
     --f4n-line-height-normal: 100%;
     --f4n-line-height-bit-loose: 110%;
     --f4n-line-height-loose: 130%;
-    --f4n-line-height-bloody-loose: 170%;
+    --f4n-line-height-bloody-loose: 190%;
 
     --f4n-char-spacing-packed: -0.075em;
     --f4n-char-spacing-loose: 1px;
@@ -72,6 +72,6 @@
   }
 
   p, h1, h2, h3, h4, h5, h6 {
-    word-break: auto-phrase;
+    /* word-break: auto-phrase; */
   }
 }

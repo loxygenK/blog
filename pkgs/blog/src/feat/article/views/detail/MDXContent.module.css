@@ -33,10 +33,12 @@
 
   .post sub {
     vertical-align: sub;
+    line-height: 0; /* To avoid sub/sup messing up the line-height */
   }
 
   .post sup {
     vertical-align: super;
+    line-height: 0; /* To avoid sub/sup messing up the line-height */
   }
 
   .post pre {
@@ -46,13 +48,13 @@
   }
 
   .post *:not(pre) > code {
-    font-size: var(--f4n-font-size-small);
+    font-size: var(--f4n-font-size-normal);
     font-family: var(--f4n-font-family-mono);
     letter-spacing: 0;
     font-weight: 300;
 
     padding: 0.1em 0.5em;
-    background-color: rgba(230 230 230 / 0.5);
+    background-color: rgba(0 0 0 / 0.07);
     border-radius: 2px;
   }
 
@@ -156,6 +158,32 @@
   .post *:is(th, td) {
     padding: 0.5em 1em;
     border: 1px solid var(--type-color);
+  }
+
+  .post blockquote {
+    background-color: hsla(var(--type-color-hue), 40%, 50%, 10%);
+    padding: var(--f4n-spacing-large);
+    padding-bottom: calc(var(--f4n-spacing-large) - var(--f4n-spacing-normal));
+
+    margin-bottom: 1.5em;
+    border-radius: 4px;
+  }
+
+  .post blockquote p {
+    margin-bottom: var(--f4n-spacing-normal);
+    border-left: 2px solid var(--type-color);
+    padding-left: var(--f4n-spacing-large);
+  }
+
+  .post section[data-footnotes=true] h2 {
+    font-size: var(--f4n-font-size-large);
+    border-bottom: 1px dotted var(--type-color);
+    padding-bottom: var(--f4n-spacing-small);
+  }
+
+  .post section[data-footnotes=true] p {
+    margin-bottom: 0.5em;
+    font-size: 0.9em;
   }
 }
 
