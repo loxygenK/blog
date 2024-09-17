@@ -2,7 +2,7 @@ import GitHubSlugger from "github-slugger";
 import { fromMarkdown } from "mdast-util-from-markdown";
 import { toString as treeToString } from "mdast-util-to-string";
 import { compileMDX } from "next-mdx-remote/rsc";
-import { FC, ReactElement, ReactNode } from "react";
+import { FC, ReactElement } from "react";
 import rehypeHighlight from "rehype-highlight";
 import rehypeKaTeX from "rehype-katex";
 import rehypeSlug from "rehype-slug";

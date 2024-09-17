@@ -1,5 +1,5 @@
 import { propertiesDefinition } from "blog-processor/types";
-import { z } from "zod";
+import { z, type ZodTypeAny } from "zod";
 import { reactNode, runtimeChecked } from "./types";
 import { withDefinition } from "./withDef";
 
@@ -9,7 +9,7 @@ import styles from "./Section.module.css";
 const props = z.object({
   children: reactNode,
   type: z.string(),
-  propsDef: propertiesDefinition,
+  propsDef: propertiesDefinition as ZodTypeAny,
 });
 
 export const Section = withDefinition(

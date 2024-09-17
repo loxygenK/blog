@@ -10,10 +10,8 @@
       "correctness": {
         "noUndeclaredVariables": "error"
       },
-      "nursery": {
-        "noDefaultExport": "off"
-      },
       "style": {
+        "noDefaultExport": "off",
         "useNamingConvention": "off"
       }
     }
