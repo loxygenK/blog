@@ -1,5 +1,5 @@
 {
   "name": "blog",
   "private": "true",
-  "packageManager": "pnpm@9.10.0"
+  "packageManager": "pnpm@9.12.2"
 }
